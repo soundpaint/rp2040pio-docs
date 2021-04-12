@@ -9,6 +9,15 @@ cycle, the application records the updated states of all visualized
 signals, until all all cycles have been performed.  Finally, it
 renders the corresponding timing diagram from the recorded data.
 
+Similar to all other client applications, TimingDiagram is available
+as Jar file and can be executed from the command line via::
+
+  java -jar rp2040pio_diagram.jar
+
+with optional paramater ``-p`` to specify the server port to connect
+to.  Again, like as for the server, the default port is ``2040``, if
+not specified on the command line.
+
 .. figure:: images/diagram.png
    :scale: 80 %
    :alt: TimingDiagram Application

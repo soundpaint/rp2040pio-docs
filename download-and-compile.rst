@@ -1,10 +1,15 @@
 Download & Compile
 ==================
 
-Since version 1.0 has not yet been released, I do not provide
-pre-compiled binaries as of now, that is, you have to compile all Java
-files by yourself.  Also, the build process itself is still under
-development.  As of writing these lines, you have to proceed as
+The RP2040 Emulator is published as open source under GPL v2 and
+available on Github under the following URL:
+
+https://github.com/soundpaint/rp2040pio
+
+Since no stable version 1.0 has not yet been released, I do not
+provide pre-compiled binaries as of now, that is, you have to compile
+all Java files by yourself.  Also, the build process itself is still
+under development.  As of writing these lines, you have to proceed as
 follows:
 
 Prerequisites

@@ -6,9 +6,13 @@ implement a small emulation client.  Its sole purpose is to display
 the current status of all of the emulator's 32 GPIO pins.
 
 The application is available as Jar file and can be executed from the
-command line as follows: ::
+command line via ::
 
   java -jar rp2040pio_gpioobserver.jar
+
+with optional paramater ``-p`` to specify the server port to connect
+to.  Again, like as for the server, the default port is ``2040``, if
+not specified on the command line.
 
 For each GPIO pin, the application displays the pin's current pad
 value and pin direction with an LED-like symbol.  If a GPIO pin is

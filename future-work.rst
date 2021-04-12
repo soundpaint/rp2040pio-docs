@@ -78,4 +78,17 @@ following items:
   get notfied upon each clock cycle, but also when another client has
   changed the register value in question.
 
+* C language binding / integration with ``pioasm``.  PIO programs may
+  contain C code that can not be directly executed by the emulator.
+  Instead, we follow the idea of Pico C SDK's ``host`` interface:
+  Whenever there is a direct access to the RP2040 chip via the Pico C
+  SDK, we replace that access with a call to the corresponding
+  emulator's register via the TCP/IP socket connection to the register
+  server.  This way, even C code created by the ``pioasm`` tool will
+  be able to communicate with the emulator as expected (except for
+  timing, since the emulation is running at its own speed; this aspect
+  needs more provsions).  For the general outline of this approach,
+  see the pico-host-sdl repository at
+  https://github.com/raspberrypi/pico-host-sdl.
+
 … and many more!
