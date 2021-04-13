@@ -4,11 +4,6 @@ Architecture
 The RP2040 PIO emulator has been designed to implement a client-server
 architecture.
 
-Similar to the Pico C SDK (but limited to those parts relevant for the
-PIO), the emulator provides a Java SDK that builds up on the register
-facade, just like the Pico C SDK builds up on read / write access of
-the PIO's memory-mapped I/O.
-
 .. figure:: images/server.png
    :scale: 80 %
    :alt: Emulation Server
@@ -44,6 +39,11 @@ accessing all of the emulator's internal state by providing simple
 
 Java SDK
 ~~~~~~~~
+
+Similar to the Pico C SDK (but limited to those parts relevant for the
+PIO), the emulator provides a Java SDK that builds up on the register
+facade, just like the Pico C SDK builds up on read / write access of
+the PIO's memory-mapped I/O.
 
 Register Server
 ~~~~~~~~~~~~~~~

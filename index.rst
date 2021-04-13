@@ -22,6 +22,17 @@ precise as necessary to reproduce its logical functionality such that
 a PIO program can be debugged in the emulator, thus making developing
 programs for the PIO much easier.
 
+.. figure:: images/overview.png
+   :scale: 60 %
+   :alt: Server Console, Monitor, Timing Diagram and GPIO Observer
+
+   Server Console, Monitor, Timing Diagram and GPIO Observer at a Glance
+
+   A typical development / debugging session with server console
+   running in a standard terminal, client-side monitor for control and
+   inspection, timing diagram for watching signals and GPIO Observer
+   for watching current status of GPIO pins.
+
 .. toctree::
    :maxdepth: 2
    :caption: Getting Started:
