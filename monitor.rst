@@ -1,13 +1,14 @@
-Monitor
-=======
+Monitor & Control Program
+=========================
 
-The Monitor application is the versatile core client, based on a text
-interface, and a set of flexible commands that allow for query and
-manipulation of all of the emulator's internal state that is
-accessible through the register facade.  It provides commands for
-low-level register access, but also strives to make available
-high-level commands with functionality roughly comparable to those
-parts of the Pico C SDK that are relevant for the PIO.
+The Monitor & Control Program is a versatile core client application,
+based on a textual command line interface, and a set of flexible
+commands that allow for query and manipulation of all of the
+emulator's internal state that is accessible through the register
+facade.  It provides commands for low-level register access, but also
+strives to make available high-level commands with functionality
+roughly comparable to those parts of the Pico C SDK that are relevant
+for the PIO.
 
 The monitor can be started in a terminal with the command::
 

@@ -36,9 +36,11 @@ thus making developing programs for the PIO much easier.
 
 .. figure:: images/overview.png
    :scale: 60 %
-   :alt: Server Console, Monitor, Timing Diagram and GPIO Observer
+   :alt: Server Console, Monitor Control Program, Timing Diagram and
+         GPIO Observer
 
-   Server Console, Monitor, Timing Diagram and GPIO Observer at a Glance
+   Server Console, Monitor Control Program, Timing Diagram and GPIO
+   Observer at a Glance
 
    A typical development / debugging session with server console
    running in a standard terminal, client-side monitor for control and
@@ -79,6 +81,7 @@ thus making developing programs for the PIO much easier.
    :maxdepth: 2
    :caption: API Documentation
 
+   pico-emu-registers
    pio-emu-registers
 
 Indices and tables
