@@ -1,8 +1,15 @@
 Motivation
 ==========
 
-Writing programs for the PIOs is extremely challenging: The set of
-instructions highly specialized
+Developing programs for the PIOs is extremely challenging due to its
+highly specialized instruction set with a lot of parallelism and
+intended side effects.  Debugging of PIO programs on the RP2040 chip
+is impossible.
+
+Developing and Debugging PIO Pograms
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The set of instructions highly specialized
 
   * on bit manipulations rather than general-purpose computing and
   * on single-cycle precision of time.
@@ -55,7 +62,7 @@ the following features:
   and use the example PIO programs in the RP2040 datasheet for testing
   and verification.)
 
-Finally, there is a motivation for developing an emulator that applies
+Finally, there is motivation for developing an emulator that applies
 mainly to me personally: If I succeed in implementing a (more or less)
 correctly working emulation of the PIO, than I am somewhat confident
 that I have basically understood how the PIO works and what
