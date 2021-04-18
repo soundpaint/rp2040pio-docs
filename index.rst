@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-RP2040 PIO Emulator Documentation
-=================================
+RP2040 PIO Emulator
+===================
 
 In late January of 2021, the `Raspberry Pi Foundation
 <https://www.raspberrypi.org/>`_ announced their new `Raspberry Pi
@@ -79,10 +79,18 @@ thus making developing programs for the PIO much easier.
 
 .. toctree::
    :maxdepth: 2
-   :caption: API Documentation
+   :caption: User Reference Documentation
+
+   monitor-commands
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Register API Documentation
 
    pico-emu-registers
    pio-emu-registers
+   pio-registers
+   gpio-registers
 
 Indices and tables
 ==================

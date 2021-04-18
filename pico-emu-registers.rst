@@ -1,25 +1,25 @@
 .. # WARNING: This sphinx documentation file was automatically
-.. # created directly from documentation info the source code.
+.. # created directly from documentation info in the source code.
 .. # DO NOT CHANGE THIS FILE, since changes will be lost upon
-.. # its next update.
+.. # its next update.  Instead, change the info in the source code.
 .. # This file was automatically created on:
-.. # 2021-04-17T22:42:49.254164Z
+.. # 2021-04-18T19:48:44.885250Z
 
-.. _section-top_additional_global_registers:
+.. _section-top_emulator_global_registers:
 
-Additional Global Registers
-===========================
+Emulator Global Registers
+=========================
 
 List of Registers
 -----------------
 
 The PIO emulator provides global registers, hereafter
-called *Pico Emulator Registers*, that are used to inspect
+called *Emulator Global Registers*, that are used to inspect
 and control the emulator as a whole (rather than just
 referring to a specifc PIO) and that are accessible through
 this registers facade and provided in addition to the
 registers of the original RP2040 hardware.
-Base address for the Pico emulator register set is
+Base address for the emulator global register set is
 0x58000000.
 
 
@@ -37,8 +37,8 @@ Base address for the Pico emulator register set is
 
 .. _PWR_UP-details-label:
 
-:ref:`Additional Global Registers <section-top_additional_global_registers>`: PWR_UP Register
----------------------------------------------------------------------------------------------
+:ref:`Emulator Global Registers <section-top_emulator_global_registers>`: PWR_UP Register
+-----------------------------------------------------------------------------------------
 
 **Offset:** 0x000
 
@@ -50,8 +50,8 @@ Base address for the Pico emulator register set is
 
 .. _MASTERCLK_FREQ-details-label:
 
-:ref:`Additional Global Registers <section-top_additional_global_registers>`: MASTERCLK_FREQ Register
------------------------------------------------------------------------------------------------------
+:ref:`Emulator Global Registers <section-top_emulator_global_registers>`: MASTERCLK_FREQ Register
+-------------------------------------------------------------------------------------------------
 
 **Offset:** 0x004
 
@@ -63,8 +63,8 @@ Base address for the Pico emulator register set is
 
 .. _MASTERCLK_MODE-details-label:
 
-:ref:`Additional Global Registers <section-top_additional_global_registers>`: MASTERCLK_MODE Register
------------------------------------------------------------------------------------------------------
+:ref:`Emulator Global Registers <section-top_emulator_global_registers>`: MASTERCLK_MODE Register
+-------------------------------------------------------------------------------------------------
 
 **Offset:** 0x008
 
@@ -81,8 +81,8 @@ Selects the clock mode.
 
 .. _MASTERCLK_TRIGGER_PHASE0-details-label:
 
-:ref:`Additional Global Registers <section-top_additional_global_registers>`: MASTERCLK_TRIGGER_PHASE0 Register
----------------------------------------------------------------------------------------------------------------
+:ref:`Emulator Global Registers <section-top_emulator_global_registers>`: MASTERCLK_TRIGGER_PHASE0 Register
+-----------------------------------------------------------------------------------------------------------
 
 **Offset:** 0x00c
 
@@ -94,8 +94,8 @@ Selects the clock mode.
 
 .. _MASTERCLK_TRIGGER_PHASE1-details-label:
 
-:ref:`Additional Global Registers <section-top_additional_global_registers>`: MASTERCLK_TRIGGER_PHASE1 Register
----------------------------------------------------------------------------------------------------------------
+:ref:`Emulator Global Registers <section-top_emulator_global_registers>`: MASTERCLK_TRIGGER_PHASE1 Register
+-----------------------------------------------------------------------------------------------------------
 
 **Offset:** 0x010
 
@@ -107,8 +107,8 @@ Selects the clock mode.
 
 .. _WALLCLOCK_LSB-details-label:
 
-:ref:`Additional Global Registers <section-top_additional_global_registers>`: WALLCLOCK_LSB Register
-----------------------------------------------------------------------------------------------------
+:ref:`Emulator Global Registers <section-top_emulator_global_registers>`: WALLCLOCK_LSB Register
+------------------------------------------------------------------------------------------------
 
 **Offset:** 0x014
 
@@ -120,8 +120,8 @@ Selects the clock mode.
 
 .. _WALLCLOCK_MSB-details-label:
 
-:ref:`Additional Global Registers <section-top_additional_global_registers>`: WALLCLOCK_MSB Register
-----------------------------------------------------------------------------------------------------
+:ref:`Emulator Global Registers <section-top_emulator_global_registers>`: WALLCLOCK_MSB Register
+------------------------------------------------------------------------------------------------
 
 **Offset:** 0x018
 

@@ -1,14 +1,14 @@
 .. # WARNING: This sphinx documentation file was automatically
-.. # created directly from documentation info the source code.
+.. # created directly from documentation info in the source code.
 .. # DO NOT CHANGE THIS FILE, since changes will be lost upon
-.. # its next update.
+.. # its next update.  Instead, change the info in the source code.
 .. # This file was automatically created on:
-.. # 2021-04-17T22:42:49.309347Z
+.. # 2021-04-18T19:48:44.893012Z
 
-.. _section-top_additional_pio_registers:
+.. _section-top_emulator_pio_registers:
 
-Additional PIO Registers
-========================
+Emulator PIO Registers
+======================
 
 List of Registers
 -----------------
@@ -19,7 +19,8 @@ for inspection of more details of the PIO's internal state
 such as its scratch registers X and Y, its shift registers
 ISR, OSR, FIFO memory, and read access to PIO instruction
 memory for enhanced debugging of programs.
-Base address for the PIO emulator register sets is
+Base address for the two emulator PIO register sets (one 
+register set for each of the two PIOs) is
 0x58200000 and 0x58300000 for PIO0 and PIO1, respectively.
 
 
@@ -151,8 +152,8 @@ Base address for the PIO emulator register sets is
 .. _SM2_REGX-details-label:
 .. _SM3_REGX-details-label:
 
-:ref:`Additional PIO Registers <section-top_additional_pio_registers>`: SM0_REGX, SM1_REGX, SM2_REGX, SM3_REGX Registers
-------------------------------------------------------------------------------------------------------------------------
+:ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_REGX, SM1_REGX, SM2_REGX, SM3_REGX Registers
+--------------------------------------------------------------------------------------------------------------------
 
 **Offsets:** 0x000, 0x054, 0x0a8, 0x0fc
 
@@ -167,8 +168,8 @@ Base address for the PIO emulator register sets is
 .. _SM2_REGY-details-label:
 .. _SM3_REGY-details-label:
 
-:ref:`Additional PIO Registers <section-top_additional_pio_registers>`: SM0_REGY, SM1_REGY, SM2_REGY, SM3_REGY Registers
-------------------------------------------------------------------------------------------------------------------------
+:ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_REGY, SM1_REGY, SM2_REGY, SM3_REGY Registers
+--------------------------------------------------------------------------------------------------------------------
 
 **Offsets:** 0x004, 0x058, 0x0ac, 0x100
 
@@ -183,8 +184,8 @@ Base address for the PIO emulator register sets is
 .. _SM2_PC-details-label:
 .. _SM3_PC-details-label:
 
-:ref:`Additional PIO Registers <section-top_additional_pio_registers>`: SM0_PC, SM1_PC, SM2_PC, SM3_PC Registers
-----------------------------------------------------------------------------------------------------------------
+:ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_PC, SM1_PC, SM2_PC, SM3_PC Registers
+------------------------------------------------------------------------------------------------------------
 
 **Offsets:** 0x008, 0x05c, 0x0b0, 0x104
 
@@ -199,8 +200,8 @@ Base address for the PIO emulator register sets is
 .. _SM2_ISR-details-label:
 .. _SM3_ISR-details-label:
 
-:ref:`Additional PIO Registers <section-top_additional_pio_registers>`: SM0_ISR, SM1_ISR, SM2_ISR, SM3_ISR Registers
---------------------------------------------------------------------------------------------------------------------
+:ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_ISR, SM1_ISR, SM2_ISR, SM3_ISR Registers
+----------------------------------------------------------------------------------------------------------------
 
 **Offsets:** 0x00c, 0x060, 0x0b4, 0x108
 
@@ -215,8 +216,8 @@ Base address for the PIO emulator register sets is
 .. _SM2_ISR_SHIFT_COUNT-details-label:
 .. _SM3_ISR_SHIFT_COUNT-details-label:
 
-:ref:`Additional PIO Registers <section-top_additional_pio_registers>`: SM0_ISR_SHIFT_COUNT, SM1_ISR_SHIFT_COUNT, SM2_ISR_SHIFT_COUNT, SM3_ISR_SHIFT_COUNT Registers
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+:ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_ISR_SHIFT_COUNT, SM1_ISR_SHIFT_COUNT, SM2_ISR_SHIFT_COUNT, SM3_ISR_SHIFT_COUNT Registers
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Offsets:** 0x010, 0x064, 0x0b8, 0x10c
 
@@ -231,8 +232,8 @@ Base address for the PIO emulator register sets is
 .. _SM2_OSR-details-label:
 .. _SM3_OSR-details-label:
 
-:ref:`Additional PIO Registers <section-top_additional_pio_registers>`: SM0_OSR, SM1_OSR, SM2_OSR, SM3_OSR Registers
---------------------------------------------------------------------------------------------------------------------
+:ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_OSR, SM1_OSR, SM2_OSR, SM3_OSR Registers
+----------------------------------------------------------------------------------------------------------------
 
 **Offsets:** 0x014, 0x068, 0x0bc, 0x110
 
@@ -247,8 +248,8 @@ Base address for the PIO emulator register sets is
 .. _SM2_OSR_SHIFT_COUNT-details-label:
 .. _SM3_OSR_SHIFT_COUNT-details-label:
 
-:ref:`Additional PIO Registers <section-top_additional_pio_registers>`: SM0_OSR_SHIFT_COUNT, SM1_OSR_SHIFT_COUNT, SM2_OSR_SHIFT_COUNT, SM3_OSR_SHIFT_COUNT Registers
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+:ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_OSR_SHIFT_COUNT, SM1_OSR_SHIFT_COUNT, SM2_OSR_SHIFT_COUNT, SM3_OSR_SHIFT_COUNT Registers
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Offsets:** 0x018, 0x06c, 0x0c0, 0x114
 
@@ -291,8 +292,8 @@ Base address for the PIO emulator register sets is
 .. _SM3_FIFO_MEM6-details-label:
 .. _SM3_FIFO_MEM7-details-label:
 
-:ref:`Additional PIO Registers <section-top_additional_pio_registers>`: SM0_FIFO_MEM0, SM0_FIFO_MEM1, SM0_FIFO_MEM2, SM0_FIFO_MEM3, SM0_FIFO_MEM4, SM0_FIFO_MEM5, SM0_FIFO_MEM6, SM0_FIFO_MEM7, SM1_FIFO_MEM0, SM1_FIFO_MEM1, SM1_FIFO_MEM2, SM1_FIFO_MEM3, SM1_FIFO_MEM4, SM1_FIFO_MEM5, SM1_FIFO_MEM6, SM1_FIFO_MEM7, SM2_FIFO_MEM0, SM2_FIFO_MEM1, SM2_FIFO_MEM2, SM2_FIFO_MEM3, SM2_FIFO_MEM4, SM2_FIFO_MEM5, SM2_FIFO_MEM6, SM2_FIFO_MEM7, SM3_FIFO_MEM0, SM3_FIFO_MEM1, SM3_FIFO_MEM2, SM3_FIFO_MEM3, SM3_FIFO_MEM4, SM3_FIFO_MEM5, SM3_FIFO_MEM6, SM3_FIFO_MEM7 Registers
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+:ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_FIFO_MEM0, SM0_FIFO_MEM1, SM0_FIFO_MEM2, SM0_FIFO_MEM3, SM0_FIFO_MEM4, SM0_FIFO_MEM5, SM0_FIFO_MEM6, SM0_FIFO_MEM7, SM1_FIFO_MEM0, SM1_FIFO_MEM1, SM1_FIFO_MEM2, SM1_FIFO_MEM3, SM1_FIFO_MEM4, SM1_FIFO_MEM5, SM1_FIFO_MEM6, SM1_FIFO_MEM7, SM2_FIFO_MEM0, SM2_FIFO_MEM1, SM2_FIFO_MEM2, SM2_FIFO_MEM3, SM2_FIFO_MEM4, SM2_FIFO_MEM5, SM2_FIFO_MEM6, SM2_FIFO_MEM7, SM3_FIFO_MEM0, SM3_FIFO_MEM1, SM3_FIFO_MEM2, SM3_FIFO_MEM3, SM3_FIFO_MEM4, SM3_FIFO_MEM5, SM3_FIFO_MEM6, SM3_FIFO_MEM7 Registers
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Offsets:** 0x01c, 0x020, 0x024, 0x028, 0x02c, 0x030, 0x034, 0x038, 0x070, 0x074, 0x078, 0x07c, 0x080, 0x084, 0x088, 0x08c, 0x0c4, 0x0c8, 0x0cc, 0x0d0, 0x0d4, 0x0d8, 0x0dc, 0x0e0, 0x118, 0x11c, 0x120, 0x124, 0x128, 0x12c, 0x130, 0x134
 
@@ -307,8 +308,8 @@ Base address for the PIO emulator register sets is
 .. _SM2_DELAY-details-label:
 .. _SM3_DELAY-details-label:
 
-:ref:`Additional PIO Registers <section-top_additional_pio_registers>`: SM0_DELAY, SM1_DELAY, SM2_DELAY, SM3_DELAY Registers
-----------------------------------------------------------------------------------------------------------------------------
+:ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_DELAY, SM1_DELAY, SM2_DELAY, SM3_DELAY Registers
+------------------------------------------------------------------------------------------------------------------------
 
 **Offsets:** 0x03c, 0x090, 0x0e4, 0x138
 
@@ -324,8 +325,8 @@ Base address for the PIO emulator register sets is
 .. _SM2_DELAY_CYCLE-details-label:
 .. _SM3_DELAY_CYCLE-details-label:
 
-:ref:`Additional PIO Registers <section-top_additional_pio_registers>`: SM0_DELAY_CYCLE, SM1_DELAY_CYCLE, SM2_DELAY_CYCLE, SM3_DELAY_CYCLE Registers
-----------------------------------------------------------------------------------------------------------------------------------------------------
+:ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_DELAY_CYCLE, SM1_DELAY_CYCLE, SM2_DELAY_CYCLE, SM3_DELAY_CYCLE Registers
+------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Offsets:** 0x040, 0x094, 0x0e8, 0x13c
 
@@ -345,8 +346,8 @@ Read-only access to the SM's delay status.
 .. _SM2_PENDING_DELAY-details-label:
 .. _SM3_PENDING_DELAY-details-label:
 
-:ref:`Additional PIO Registers <section-top_additional_pio_registers>`: SM0_PENDING_DELAY, SM1_PENDING_DELAY, SM2_PENDING_DELAY, SM3_PENDING_DELAY Registers
-------------------------------------------------------------------------------------------------------------------------------------------------------------
+:ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_PENDING_DELAY, SM1_PENDING_DELAY, SM2_PENDING_DELAY, SM3_PENDING_DELAY Registers
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Offsets:** 0x044, 0x098, 0x0ec, 0x140
 
@@ -360,15 +361,15 @@ number of pending delay cycles.
    :widths: 8, 20, 40, 8, 20
 
    31:5, Reserved., "―", ―, ―
-   4:0, PENDING_DELAY, "number (0..0x1f) of pending delays of the currently executed instruction", RO, 0
+   4:0, PENDING_DELAY, "number (0x00…0x1f) of pending delays of the currently executed instruction", RO, 0
 
 .. _SM0_CLK_ENABLE-details-label:
 .. _SM1_CLK_ENABLE-details-label:
 .. _SM2_CLK_ENABLE-details-label:
 .. _SM3_CLK_ENABLE-details-label:
 
-:ref:`Additional PIO Registers <section-top_additional_pio_registers>`: SM0_CLK_ENABLE, SM1_CLK_ENABLE, SM2_CLK_ENABLE, SM3_CLK_ENABLE Registers
-------------------------------------------------------------------------------------------------------------------------------------------------
+:ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_CLK_ENABLE, SM1_CLK_ENABLE, SM2_CLK_ENABLE, SM3_CLK_ENABLE Registers
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 **Offsets:** 0x048, 0x09c, 0x0f0, 0x144
 
@@ -388,8 +389,8 @@ Read-only access to the SM's delay status.
 .. _SM2_BREAKPOINTS-details-label:
 .. _SM3_BREAKPOINTS-details-label:
 
-:ref:`Additional PIO Registers <section-top_additional_pio_registers>`: SM0_BREAKPOINTS, SM1_BREAKPOINTS, SM2_BREAKPOINTS, SM3_BREAKPOINTS Registers
-----------------------------------------------------------------------------------------------------------------------------------------------------
+:ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_BREAKPOINTS, SM1_BREAKPOINTS, SM2_BREAKPOINTS, SM3_BREAKPOINTS Registers
+------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Offsets:** 0x04c, 0x0a0, 0x0f4, 0x148
 
@@ -450,8 +451,8 @@ to single step mode.
 .. _SM2_TRACEPOINTS-details-label:
 .. _SM3_TRACEPOINTS-details-label:
 
-:ref:`Additional PIO Registers <section-top_additional_pio_registers>`: SM0_TRACEPOINTS, SM1_TRACEPOINTS, SM2_TRACEPOINTS, SM3_TRACEPOINTS Registers
-----------------------------------------------------------------------------------------------------------------------------------------------------
+:ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_TRACEPOINTS, SM1_TRACEPOINTS, SM2_TRACEPOINTS, SM3_TRACEPOINTS Registers
+------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Offsets:** 0x050, 0x0a4, 0x0f8, 0x14c
 
@@ -535,8 +536,8 @@ work in all master clock MASTERCLK_MODE modes.
 .. _INSTR_MEM30-details-label:
 .. _INSTR_MEM31-details-label:
 
-:ref:`Additional PIO Registers <section-top_additional_pio_registers>`: INSTR_MEM0, INSTR_MEM1, INSTR_MEM2, INSTR_MEM3, INSTR_MEM4, INSTR_MEM5, INSTR_MEM6, INSTR_MEM7, INSTR_MEM8, INSTR_MEM9, INSTR_MEM10, INSTR_MEM11, INSTR_MEM12, INSTR_MEM13, INSTR_MEM14, INSTR_MEM15, INSTR_MEM16, INSTR_MEM17, INSTR_MEM18, INSTR_MEM19, INSTR_MEM20, INSTR_MEM21, INSTR_MEM22, INSTR_MEM23, INSTR_MEM24, INSTR_MEM25, INSTR_MEM26, INSTR_MEM27, INSTR_MEM28, INSTR_MEM29, INSTR_MEM30, INSTR_MEM31 Registers
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+:ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: INSTR_MEM0, INSTR_MEM1, INSTR_MEM2, INSTR_MEM3, INSTR_MEM4, INSTR_MEM5, INSTR_MEM6, INSTR_MEM7, INSTR_MEM8, INSTR_MEM9, INSTR_MEM10, INSTR_MEM11, INSTR_MEM12, INSTR_MEM13, INSTR_MEM14, INSTR_MEM15, INSTR_MEM16, INSTR_MEM17, INSTR_MEM18, INSTR_MEM19, INSTR_MEM20, INSTR_MEM21, INSTR_MEM22, INSTR_MEM23, INSTR_MEM24, INSTR_MEM25, INSTR_MEM26, INSTR_MEM27, INSTR_MEM28, INSTR_MEM29, INSTR_MEM30, INSTR_MEM31 Registers
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Offsets:** 0x150, 0x154, 0x158, 0x15c, 0x160, 0x164, 0x168, 0x16c, 0x170, 0x174, 0x178, 0x17c, 0x180, 0x184, 0x188, 0x18c, 0x190, 0x194, 0x198, 0x19c, 0x1a0, 0x1a4, 0x1a8, 0x1ac, 0x1b0, 0x1b4, 0x1b8, 0x1bc, 0x1c0, 0x1c4, 0x1c8, 0x1cc
 
@@ -548,8 +549,8 @@ work in all master clock MASTERCLK_MODE modes.
 
 .. _GPIO_PINS-details-label:
 
-:ref:`Additional PIO Registers <section-top_additional_pio_registers>`: GPIO_PINS Register
-------------------------------------------------------------------------------------------
+:ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: GPIO_PINS Register
+--------------------------------------------------------------------------------------
 
 **Offset:** 0x1d0
 
@@ -596,8 +597,8 @@ Direct read / write access to all of the 32 GPIO pins.
 
 .. _GPIO_PINDIRS-details-label:
 
-:ref:`Additional PIO Registers <section-top_additional_pio_registers>`: GPIO_PINDIRS Register
----------------------------------------------------------------------------------------------
+:ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: GPIO_PINDIRS Register
+-----------------------------------------------------------------------------------------
 
 **Offset:** 0x1d4
 

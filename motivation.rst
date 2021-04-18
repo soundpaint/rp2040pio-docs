@@ -20,6 +20,16 @@ that directly translate into machine language op-codes.  Even worse,
 PIO programs can not be debugged, since most of the PIO's internal
 state is not accessible.
 
+.. figure:: images/monitor-trace-a2-pc.png
+   :scale: 50 %
+   :alt: A tiny, but typical PIO program
+
+   A tiny, but typical PIO program
+
+   PIO programs are usually quite short, but their tight and therefore
+   usually tricky functionality requires high expertise in developing
+   and debugging.
+
 The only practical way to overcome these challenges is to provide an
 emulator that assists in developing and debugging PIO programs.  In
 particular, an emulator is an invaluably helpful tool if it supports
@@ -35,9 +45,13 @@ the following features:
 
   * the contents of PIO registers X, Y, ISR and OSR,
 
-  * the current value of the ISR / OSR shift count or
+  * the current value of the ISR / OSR shift count,
 
-  * the number of an instruction's pending delays.
+  * the values currently stored in the PIO's FIFOs,
+
+  * the number of an instruction's pending delays,
+
+  * and many more.
 
   In contrast, the emulator has access to the PIO's complete internal
   logical state (otherwise, the emulation could not correctly work).
@@ -68,7 +82,7 @@ correctly working emulation of the PIO, than I am somewhat confident
 that I have basically understood how the PIO works and what
 capabilities it has when it comes to writing PIO programs for it.
 
-Still not convinced?
+Technical Background
 ~~~~~~~~~~~~~~~~~~~~
 
 For a more technical in-depth reasoning for those who are still not
