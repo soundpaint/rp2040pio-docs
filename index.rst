@@ -52,13 +52,13 @@ thus making developing programs for the PIO much easier.
    :caption: Getting Started
 
    motivation
+   overview
    download-and-compile
 
 .. toctree::
    :maxdepth: 2
    :caption: Basic Blocks
 
-   overview
    architecture
    emulation-server
    monitor
@@ -82,6 +82,7 @@ thus making developing programs for the PIO much easier.
    :caption: User Reference Documentation
 
    monitor-commands
+   socket-api
 
 .. toctree::
    :maxdepth: 1
