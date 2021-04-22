@@ -65,10 +65,11 @@ thus making developing programs for the PIO much easier.
 
 .. toctree::
    :maxdepth: 2
-   :caption: More Client Applications
+   :caption: Working With Client Applications
 
    diagram
    gpio-observer
+   io
    limitations
 
 .. toctree::
