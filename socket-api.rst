@@ -166,45 +166,51 @@ Request Syntax
 --------------
 
 The syntax of a request to a socket is specified with the following
-grammar. ::
+grammar.
 
-  request          ::= help-request | version-request | quit-request |
-                       read-request | write-request | await-request |
-                       label-request | provides-request .
-  help-request     ::= 'h' .
-  version-request  ::= 'v' .
-  quit-request     ::= 'q' .
-  read-request     ::= 'r' address .
-  write-request    ::= 'w' address reg-value .
-  await-request    ::= 'i' address reg-value
-                       [ mask [ timeout-cycles [ timeout-millis ] ] ] .
-  label-request    ::= 'l' address .
-  provides-request ::= 'p' address .
-  address          ::= <int32> .
-  reg-value        ::= <int32> .
-  mask             ::= <int32> .
-  timeout-cycles   ::= <int32> .
-  timeout-millis   ::= <int32> .
+.. productionlist::
+  request          : help-request | version-request |
+                   : quit-request | read-request |
+                   : write-request | await-request |
+                   : label-request | provides-request .
+  help-request     : 'h' .
+  version-request  : 'v' .
+  quit-request     : 'q' .
+  read-request     : 'r' address .
+  write-request    : 'w' address reg-value .
+  await-request    : 'i' address reg-value [ mask [
+                   :   timeout-cycles [ timeout-millis ]
+                   : ] ] .
+  label-request    : 'l' address .
+  provides-request : 'p' address .
+  address          : <int32> .
+  reg-value        : <int32> .
+  mask             : <int32> .
+  timeout-cycles   : <int32> .
+  timeout-millis   : <int32> .
 
 ``<int32>`` denotes a 32 bit integer value, denoted either as decimal
 value, or as hexadecimal value, when preceded with ``0x``, and
 interpreted as unsigned 32 bit value (i.e. decimal value -1 is
-interpreted as 2^32-1 or ``0xffffffff``).
+interpreted as 2^{32}-1 or ``0xffffffff``).
 
 Response Syntax
 ---------------
 
 The syntax of a response from the socket is specified with the
-following grammar. ::
+following grammar.
 
-  response            ::= response-status [ ':' response-body ] .
-  response-status     ::= status-code status-display-name .
-  status-code         ::= <int32> .
-  status-display-name ::= <simple-string> .
-  response-body       ::= <string> .
+.. productionlist::
+  response            : response-status [ ':' response-body ] .
+  response-status     : status-code status-display-name .
+  status-code         : <int32> .
+  status-display-name : <simple-string> .
+  response-body       : <string> .
 
 A ``<simple-string>`` is a string with limited character set.
-Specifically, it may not contain the delimiter character ``:``.
+Specifically, it may not contain the character ``:``, since that
+character is used as delimiter between the response status and the
+response body.
 
 Security Considerations
 -----------------------
