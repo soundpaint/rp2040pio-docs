@@ -10,6 +10,9 @@ strives to make available high-level commands with functionality
 roughly comparable to those parts of the Pico C SDK that are relevant
 for the PIO.
 
+Invocation
+----------
+
 The monitor can be started in a terminal with the command::
 
   java -jar rp2040pio_monitor.jar
@@ -50,16 +53,18 @@ the command, a short description of the command, optionally some more
 detailed notes, and finally a list of all available options with
 default value and a short description of the option.
 
-Note: The syntax of the command options is subject to change.  The
-overall goal is to simplify command syntax, were feasible, e.g. to be
-able to write ``write 0x50200048 0`` instead of ``write -a
-0x50200048 -v 0``.  However, since the commands implementation uses a
-generic command line parser that currently does not support unnamed
-options, first a major rewrite of the parser has to be taken before
-the syntax can be updated.
+.. warning::
+
+  The syntax of the command options is subject to change.  The overall
+  goal is to simplify command syntax, were feasible, e.g. to be able
+  to write ``write 0x50200048 0`` instead of ``write -a 0x50200048 -v
+  0``.  However, since the commands implementation uses a generic
+  command line parser that currently does not support unnamed options,
+  first a major rewrite of the parser has to be taken before the
+  syntax can be updated.
 
 Example Session
-~~~~~~~~~~~~~~~
+---------------
 
 We give a short survey over a selected set of the monitor's feature
 with an example session.

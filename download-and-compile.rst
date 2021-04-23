@@ -13,7 +13,7 @@ still under development.  As of writing these lines, you roughly have
 to proceed as follows.
 
 Prerequisites
-~~~~~~~~~~~~~
+-------------
 
 List of required software:
 
@@ -35,7 +35,7 @@ operating system with ``GNU Make`` and ``Java JDK 11``, though the
 steps may also work with other environments.
 
 Download
-~~~~~~~~
+--------
 
 Download the source repository from Github with the following steps:
 
@@ -48,7 +48,7 @@ Download the source repository from Github with the following steps:
     git clone git@github.com:soundpaint/rp2040pio.git
 
 Compile
-~~~~~~~
+-------
 
 * Go to the project root directory of the repository that you just
   have cloned: ::

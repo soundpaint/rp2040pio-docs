@@ -61,7 +61,7 @@ thus making developing programs for the PIO much easier.
 
    architecture
    emulation-server
-   monitor
+   Monitor Client <monitor>
 
 .. toctree::
    :maxdepth: 2
@@ -69,7 +69,7 @@ thus making developing programs for the PIO much easier.
 
    diagram
    gpio-observer
-   io
+   External Data <io>
    limitations
 
 .. toctree::
@@ -82,8 +82,8 @@ thus making developing programs for the PIO much easier.
    :maxdepth: 2
    :caption: User Reference Documentation
 
-   monitor-commands
-   socket-api
+   Monitor commands <monitor-commands>
+   Socket API <socket-api>
 
 .. toctree::
    :maxdepth: 1

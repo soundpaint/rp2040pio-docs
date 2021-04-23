@@ -7,7 +7,7 @@ intended side effects.  Debugging of PIO programs on the RP2040 chip
 is impossible.
 
 Developing and Debugging PIO Pograms
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
 The set of instructions highly specialized
 
@@ -83,7 +83,7 @@ that I have basically understood how the PIO works and what
 capabilities it has when it comes to writing PIO programs for it.
 
 Technical Background
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 For a more technical in-depth reasoning for those who are still not
 convinced: Why *exactly* is it not possible to trace or debug PIO

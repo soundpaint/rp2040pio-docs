@@ -6,8 +6,8 @@ with a local emulation server of their own, the client / server
 architecture develops its full usefulness only when all clients share
 the same emulation server.
 
-Starting the server
-~~~~~~~~~~~~~~~~~~~
+Starting the Server
+-------------------
 
 To start the server, envoke the ``java`` runtime (JDK or JRE) with
 option ``-jar`` and followed by the file path of the
@@ -60,16 +60,16 @@ to specify an alternative port: ::
 
    java -jar rp2040pio_server.jar -p 2041
 
-Please note, that on most operating systems, for using port numbers in
-the range ``1`` to ``1023``, you will need ``root`` or
-``administrator`` access rights.  If you try anyway, you may get the
-following message:
+.. note::
 
-::
+  On most operating systems, for using port numbers in the range ``1``
+  to ``1023``, you will need ``root`` or ``administrator`` access
+  rights.  If you try anyway, you may get the following message: ::
 
-  failed starting emulation server: Permission denied (Bind failed)
+    failed starting emulation server:
+    Permission denied (Bind failed)
 
-In this case, just choose a different port number above ``1023``.
+  In this case, just choose a different port number above ``1023``.
 
 Leave the terminal window open while using the emulator (you can
 minimize the window, but you should not close it).  The window may
@@ -77,8 +77,8 @@ show help warning or confirmation messages.  Depending on your
 operating system, closing the terminal window may also kill the server
 process, such that the emulation will be shut down.
 
-Shutting down the emulation server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Shutting Down the Emulation Server
+----------------------------------
 
 When finished with your emulator session, you may safely kill the
 server process.  For doing so, on most operating system, just press

@@ -16,7 +16,7 @@ binding will be provided presumably within the next two or three
 months as of writing these lines.
 
 Overview
-~~~~~~~~
+--------
 
 As outlined in Sect. :ref:`Architecture Section
 <section-top_architecture>`, the emulator exposes access to all its
@@ -30,16 +30,18 @@ applications for the emulator in other languages, the API of the
 TCP/IP socket is the point of access to go for, since the socket API
 can be used from any language that can talk with TCP/IP sockets.
 
-**Important note:** The emulation server's socket API is not yet
-considered stable and may change until release of the first stable
-version of the emulator.  In particular, support for grouping multiple
-operations as a critical section to be executed without other clients
-interfering, will be added by providing a yet to be implemented
-locking mechanism.  This change may or may not affect semantics of
-already existing functionality.
+.. warning::
+
+  The emulation server's socket API is not yet considered stable and
+  may change until release of the first stable version of the
+  emulator.  In particular, support for grouping multiple operations
+  as a critical section to be executed without other clients
+  interfering, will be added by providing a yet to be implemented
+  locking mechanism.  This change may or may not affect semantics of
+  already existing functionality.
 
 Example Session
-~~~~~~~~~~~~~~~
+---------------
 
 Before diving into a formal specification of the socket API, we
 demonstrate use of the emulator via a socket by manually communicating
@@ -161,7 +163,7 @@ We finally close the connection to the server with the command
   Connection closed by foreign host.
 
 Request Syntax
-~~~~~~~~~~~~~~
+--------------
 
 The syntax of a request to a socket is specified with the following
 grammar. ::
@@ -190,7 +192,7 @@ interpreted as unsigned 32 bit value (i.e. decimal value -1 is
 interpreted as 2^32-1 or ``0xffffffff``).
 
 Response Syntax
-~~~~~~~~~~~~~~~
+---------------
 
 The syntax of a response from the socket is specified with the
 following grammar. ::
@@ -205,7 +207,7 @@ A ``<simple-string>`` is a string with limited character set.
 Specifically, it may not contain the delimiter character ``:``.
 
 Security Considerations
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 By default, sockets made available by a server are accessible for any
 process owned by any user on the local host and even from a remote

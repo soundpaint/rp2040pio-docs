@@ -8,8 +8,8 @@ approach conflicts is to use only one instance of a client for
 modifying the emulator's state (i.e. a single Monitor instance), but
 as many read-only clients as desired.
 
-Example: Concurrent Instruction Memory Allocation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Concurrent Instruction Memory Allocation and Access
+---------------------------------------------------
 
 For example, no one prevents you from starting *two* instances of a
 Monitor client, that both write program instructions into the same or
@@ -40,20 +40,23 @@ allocated in your Monitor instance (i.e. you may expect that the
 TimingDiagram possibly overwrites your PIO program, even if it is
 marked as allocated in the monitor).
 
-Note that for the future, I may decide to implement PIO instruction
-memory allocation as a feature of the emulator itself (rather than as
-a feature of the SDK, as it is implemented at the moment).  In that
-case, all monitor instances (and all other clients) would have access
-to allocation information and thus could avoid accidental modification
-of memory that is marked as allocated.  However, be aware, that memory
-allocation is nevertheless designed as a safety feature rather than as
-a security feature.  No one prevents a client from directly writing
-instruction op-codes into memory area that is marked as allocated,
-since the RP2040's register interface allows any client to overwrite
-instruction op-codes at any time, regardless of any allocation marks.
+.. note::
+
+  For the future, I may decide to implement PIO instruction memory
+  allocation as a feature of the emulator itself (rather than as a
+  feature of the SDK, as it is implemented at the moment).  In that
+  case, all monitor instances (and all other clients) would have
+  access to allocation information and thus could avoid accidental
+  modification of memory that is marked as allocated.  However, be
+  aware, that memory allocation is nevertheless designed as a safety
+  feature rather than as a security feature.  No one prevents a client
+  from directly writing instruction op-codes into memory area that is
+  marked as allocated, since the RP2040's register interface allows
+  any client to overwrite instruction op-codes at any time, regardless
+  of any allocation marks.
 
 Lost Updates
-~~~~~~~~~~~~
+------------
 
 Imagine one client modifies, say, the contents of one of the PIO's
 FIFOs, and then does not further observe any modifications.  In the
@@ -83,7 +86,7 @@ registers could be made an atomic operation from all client's point of
 view.
 
 Race Conditions
-~~~~~~~~~~~~~~~
+---------------
 
 The implementation of the local register facade currently directly
 accesses the PIOs' internal variables, rather than a copy made after
@@ -116,7 +119,7 @@ no hazards resulting from internal operation will show up through the
 register facade.
 
 Summary
-~~~~~~~
+-------
 
 For safe operation of clients without unexpected behaviour, you are
 advised to obey the following rules:

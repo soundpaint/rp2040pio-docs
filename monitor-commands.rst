@@ -3,7 +3,7 @@
 .. # DO NOT CHANGE THIS FILE, since changes will be lost upon
 .. # its next update.  Instead, change the info in the source code.
 .. # This file was automatically created on:
-.. # 2021-04-18T19:48:44.714631Z
+.. # 2021-04-23T01:43:29.188457Z
 
 Monitor & Control Program Commands Reference
 ============================================
@@ -27,6 +27,7 @@ listed below.
    :widths: 20, 80
 
    ":ref:`breakpoints <breakpoints-command-label>`","change breakpoints"
+   ":ref:`clear <clear-command-label>`","clear screen and optionally scrollback buffer"
    ":ref:`enable <enable-command-label>`","enable or disable state machine(s) or show if enabled"
    ":ref:`enter <enter-command-label>`","enter instruction opcodes; exit by entering an empty line"
    ":ref:`execute <execute-command-label>`","write instruction for immediate execution or display instruction currently executed"
@@ -83,6 +84,31 @@ change breakpoints
 ^^^^^^^^^
 
 For displaying breakpoints, use the "unassemble" command.
+
+:ref:`Back to Overview <commands-overview>`
+
+.. _clear-command-label:
+
+clear
+-----
+
+**Usage**
+^^^^^^^^^
+
+clear [OPTION]…
+
+**Description**
+^^^^^^^^^^^^^^^
+
+clear screen and optionally scrollback buffer
+
+**Options**
+^^^^^^^^^^^
+
+  -b, --buffer (default: off)
+            also clear scrollback buffer
+  -h, --help (default: off)
+            display this help text and exit
 
 :ref:`Back to Overview <commands-overview>`
 
@@ -362,9 +388,9 @@ load program from file and mark affected PIO memory area as allocated
   -l, --list (default: off)
             list names of available example hex dumps
   -s, --show=NAME (mandatory: no)
-            name of example hex dump to show
+            name of built-in example hex dump to show
   -e, --example=NAME (mandatory: no)
-            name of example hex dump to load
+            name of built-in example hex dump to load
   -f, --file=PATH (mandatory: no)
             path of hex dump file to load
   -a, --address=ADDRESS (mandatory: no)
@@ -606,11 +632,11 @@ load monitor script from file and execute it
   -l, --list (default: off)
             list names of available example scripts
   -s, --show=NAME (mandatory: no)
-            name of example script to show
+            name of built-in example script to show
   -e, --example=NAME (mandatory: no)
-            name of example script to execute
+            name of built-in example script to execute
   -f, --file=PATH (mandatory: no)
-            path of script file to execute
+            path of monitor script file to execute
   +d / -d, --dry-run (default: true)
             dry-run the script commands rather than actually executing them
   -h, --help (default: off)
@@ -702,15 +728,17 @@ trace program by performing a number of clock cycles
 ^^^^^^^^^^^
 
   -p, --pio=NUMBER (mandatory: no)
-            limit option -a to PIO number, either 0 or 1 or both, if undefined
+            limit options -l and -i to PIO number, either 0 or 1 or both, if undefined
   -s, --sm=NUMBER (mandatory: no)
-            limit option -a to SM number, one of 0, 1, 2 or 3, or all, if undefined
+            limit option -i to SM number, one of 0, 1, 2 or 3, or all, if undefined
   -c, --cycles=COUNT (default: 1)
             number of cycles to apply
-  -a, --address (default: off)
-            show instruction address (PC values) for selected state machines of selected PIOs
-  -g, --gpio (default: off)
-            show status of GPIO pins
+  -i, --show-instr (default: off)
+            show address of instruction pointer (aka PC reg) for selected SMs of selected PIOs
+  -l, --show-local-gpio (default: off)
+            show status of (local PIO's) GPIO pins
+  -g, --show-gpio (default: off)
+            show status of (global) GPIO pins
   -w, --wait=NUMBER (default: 0)
             before each cycle, sleep for the specified time [ms] or until interrupted
   -h, --help (default: off)

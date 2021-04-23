@@ -16,7 +16,7 @@ architecture.
    facade, and the SDK implementation build upon the facade.
 
 Emulator Core
-~~~~~~~~~~~~~
+-------------
 
 The core emulator consists of all parts that are
 relavant for emulating the complete PIO's logic, including:
@@ -30,7 +30,7 @@ relavant for emulating the complete PIO's logic, including:
 * IRQ handling.
 
 Register Facade
-~~~~~~~~~~~~~~~
+---------------
 
 The RP2040's PIO hardware provides memory-mapped I/O as the main
 concept for interfacing with the RP2040's ARM cores.  The emulator
@@ -40,7 +40,7 @@ accessing all of the emulator's internal state by providing simple
 ``read()`` and ``write()`` operations.
 
 Java SDK
-~~~~~~~~
+--------
 
 Similar to the Pico C SDK (but limited to those parts relevant for the
 PIO), the emulator provides a Java SDK that builds up on the register
@@ -48,7 +48,7 @@ facade, just like the Pico C SDK builds up on read / write access of
 the PIO's memory-mapped I/O.
 
 Register Server
-~~~~~~~~~~~~~~~
+---------------
 
 The register server is a TCP/IP based server that provides a very
 simple protocol for exporting the functionality of the register facade
@@ -70,7 +70,7 @@ functions.
    via the register client.
 
 Register Client
-~~~~~~~~~~~~~~~
+---------------
 
 The register client is just another implementation of the above
 *register facade*, that, however, does not directly communicate with a
@@ -82,18 +82,24 @@ implementation for the remote register facade behind the register
 server.
 
 Remote Java SDK
-~~~~~~~~~~~~~~~
+---------------
 
 Since our Java SDK solely builds upon the register facade, the SDK can
 be backed either by a local register facade, or by a remote register
 facade provided via the register client-server chain.
 
-Applications
-~~~~~~~~~~~~
+Client Applications
+-------------------
 
-For applications that build on the Java SDK (such as the Monitor, the
-TimingDiagram or the GPIO Oberserver application), there is no
-appearant difference between a local and a remote facade
+The client / server architecture provides a solid base for a
+sustainable ecosystem of client applications that create a pool of
+development tools that just has begun to grow and will eventually
+emerge into a fully grown environment for developing and debugging
+RP2040 PIO programs.
+
+For client applications that build on the Java SDK (such as the
+Monitor, the TimingDiagram or the GPIO Oberserver application), there
+is no appearant difference between a local and a remote facade
 implementation.  Instead, these applications may share access onto the
 same emulator instance, thus providing different and independent views
 onto the same emulation.  Moreover, client applications can be written
