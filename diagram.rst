@@ -19,7 +19,7 @@ to.  Again, like as for the server, the default port is ``2040``, if
 not specified on the command line.
 
 .. figure:: images/diagram.png
-   :scale: 80 %
+   :scale: 80%
    :alt: TimingDiagram Application
 
    TimingDiagram Application
@@ -33,7 +33,7 @@ information, that does not fit into the narrow cells of the digram, is
 instead displayed with tooltips.
 
 .. figure:: images/diagram-tooltips.png
-   :scale: 80 %
+   :scale: 80%
    :alt: TimingDiagram Tooltips Display
 
    TimingDiagram Tooltips Display
@@ -44,7 +44,7 @@ Via the *View* → *Properties…* dialog, the set of shown signals can be
 selected and deselected, and the order can be changed.
 
 .. figure:: images/diagram-signals-visibility.png
-   :scale: 80 %
+   :scale: 80%
    :alt: Visibility Control of Signals
 
    Visibility Control of Signals

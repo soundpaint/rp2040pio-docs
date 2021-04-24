@@ -77,10 +77,11 @@ show help warning or confirmation messages.  Depending on your
 operating system, closing the terminal window may also kill the server
 process, such that the emulation will be shut down.
 
-Shutting Down the Emulation Server
-----------------------------------
+Shutting Down
+-------------
 
 When finished with your emulator session, you may safely kill the
-server process.  For doing so, on most operating system, just press
-``CTRL-C`` in the terminal window to stop the server process.  After
-that, you can safely close the terminal window.
+server process in order to shut down the emulation server.  For doing
+so, on most operating system, just press ``CTRL-C`` in the terminal
+window to stop the server process.  After that, you can safely close
+the terminal window.

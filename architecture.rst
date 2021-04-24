@@ -7,7 +7,7 @@ The RP2040 PIO emulator has been designed to implement a client-server
 architecture.
 
 .. figure:: images/server.png
-   :scale: 80 %
+   :scale: 80%
    :alt: Emulation Server
 
    Emulation Server
@@ -58,7 +58,7 @@ emulator's adress-based register, and just a view more helper
 functions.
 
 .. figure:: images/client.png
-   :scale: 80 %
+   :scale: 80%
    :alt: Client Application
 
    Client Application
@@ -108,7 +108,7 @@ emulation server rather than depending on a particular language
 binding.
 
 .. figure:: images/client-server.png
-   :scale: 80 %
+   :scale: 80%
    :alt: Client-Server Architecture
 
    Client-Server Architecture

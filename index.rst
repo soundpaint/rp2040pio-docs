@@ -35,7 +35,7 @@ functionality such that a PIO program can be debugged in the emulator,
 thus making developing programs for the PIO much easier.
 
 .. figure:: images/overview.png
-   :scale: 60 %
+   :scale: 40%
    :alt: Server Console, Monitor Control Program, Timing Diagram and
          GPIO Observer
 

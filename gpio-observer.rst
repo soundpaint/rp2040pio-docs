@@ -22,7 +22,7 @@ the bit value of the pin is 1, it will be displayed with light color.
 If it is 0, it will be displayed with dark color.
 
 .. figure:: images/gpio-observer.png
-   :scale: 50 %
+   :scale: 80%
    :alt: GPIO Observer Application
 
    GPIO Observer Application

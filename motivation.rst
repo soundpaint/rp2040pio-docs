@@ -21,7 +21,7 @@ PIO programs can not be debugged, since most of the PIO's internal
 state is not accessible.
 
 .. figure:: images/monitor-trace-a2-pc.png
-   :scale: 50 %
+   :scale: 80%
    :alt: A tiny, but typical PIO program
 
    A tiny, but typical PIO program

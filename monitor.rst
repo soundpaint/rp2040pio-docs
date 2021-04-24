@@ -10,8 +10,8 @@ strives to make available high-level commands with functionality
 roughly comparable to those parts of the Pico C SDK that are relevant
 for the PIO.
 
-Invocation
-----------
+Starting a Session
+------------------
 
 The monitor can be started in a terminal with the command::
 
@@ -25,7 +25,7 @@ The monitor supports a number of commands.  To see a list of available
 command, just enter ``help``:
 
 .. figure:: images/monitor-help.png
-   :scale: 50 %
+   :scale: 80%
    :alt: Monitor Command ``help``
 
    Monitor Command ``help``
@@ -39,7 +39,7 @@ the specific command.  For example, the command help for the help
 command looks as follows:
 
 .. figure:: images/monitor-help-help.png
-   :scale: 50 %
+   :scale: 80%
    :alt: Help for Monitor Command ``help``
 
    Help for Monitor Command ``help``
@@ -63,18 +63,18 @@ default value and a short description of the option.
   first a major rewrite of the parser has to be taken before the
   syntax can be updated.
 
-Example Session
----------------
+Next, we give a short survey over a selected set of the monitor's
+feature with an example session.
 
-We give a short survey over a selected set of the monitor's feature
-with an example session.
+Resetting the Emulator
+----------------------
 
 We start with resetting the emulator to initial, well-defined state.
 In particular, reseting the emulator resets all of the RP2040 emulator's
 registers to those reset values specified in the RP2040 datasheet.
 
 .. figure:: images/monitor-reset.png
-   :scale: 50 %
+   :scale: 80%
    :alt: Monitor Command ``reset``
 
    Monitor Command ``reset``
@@ -87,7 +87,7 @@ In particular, the complete instruction memory of both PIOs will be
 cleared, as we can verify with the ``unassemble`` command:
 
 .. figure:: images/monitor-unassemble-empty.png
-   :scale: 50 %
+   :scale: 80%
    :alt: Monitor Command ``unassemble`` After Full Reset
 
    Monitor Command ``unassemble`` After Full Reset
@@ -112,27 +112,32 @@ individual to each specific state machine and therefore also may
 change, when viewing the same instruction memory listing from the
 perspective of a different state machine.
 
+Set Up a Program
+----------------
+
 Next, we load one of the built-in example PIO programs.  To get a list
 of all built-in example PIO programs, we enter the command ``load
--l``:
+--list``:
 
 .. figure:: images/monitor-load-list-examples.png
-   :scale: 50 %
-   :alt: Monitor Command ``load -l``
+   :scale: 80%
+   :alt: Monitor Command ``load --list``
 
-   Monitor Command ``load -l``
+   Monitor Command ``load --list``
 
    Lists all available built-in example PIO programs.
 
-We decide to load the ``squarewave`` example program:
+We decide to load the squarewave example program with the command
+``load --example squarewave``:
 
 .. figure:: images/monitor-load-squarewave.png
-   :scale: 50 %
+   :scale: 80%
    :alt: Monitor Command for Loading the ``squarewave`` Example Program
 
    Monitor Command for Loading the ``squarewave`` Example Program
 
-   Loads the ``squarewave`` PIO example program.
+   Loads the squarewave PIO example program with the monitor command
+   ``load --example squarewave``.
 
 We are told that the program consists of 4 instructions and was loaded
 at address 0.
@@ -140,7 +145,7 @@ at address 0.
 Let us now look again at the instruction memory:
 
 .. figure:: images/monitor-squarewave-loaded.png
-   :scale: 50 %
+   :scale: 80%
    :alt: Monitor Instruction Memory After Loading ``squarewave`` Program
 
    Monitor Instruction Memory After Loading ``squarewave`` Program
@@ -173,13 +178,14 @@ make use of the program wrapping feature.
 The program makes use of GPIO 0 as output.  Since many blocks of the
 RP2040 can potentially output data to this pin, we have to tell that
 our current PIO, PIO0, claims to make use of this pin.  For this
-purpose, we execute the following monitor command:
+purpose, we execute the following monitor command
+``gpio --pio=0 --gpio=0 -i``.
 
 .. figure:: images/monitor-gpio-init.png
-   :scale: 50 %
+   :scale: 80%
    :alt: Init GPIO Pin 0
 
-   Init GPIO Pin 0
+   Init GPIO pin 0 for PIO0
 
    Init GPIO pin 0 for PIO0 to claim that PIO0 will be granted access
    to this pin.
@@ -190,21 +196,38 @@ have no effect outside of the PIO.
 For this specific PIO program we do not need the wrap feature, and we
 keep the *side-set* value unmodified.  Still we have to enable one of
 the 4 state machines to actually run this program.  We choose state
-machine 0 for this job.
+machine 0 for this job with the command
+``enable --pio=0 --sm=0 --enable=true``.
 
 .. figure:: images/monitor-enable-sm.png
-   :scale: 50 %
+   :scale: 80%
    :alt: Enable State Machine 0
 
    Enable State Machine 0
 
    Enable state machine 0 for execution of our PIO program.
 
+.. note::
+
+   Entering (or loading in) a PIO program and setting it properly up
+   can be tedious and error-prone work.  The monitor features a very
+   simple form of scripting: monitor commands can be collected in
+   script file (typically using the file name extension ``.mon``) for
+   execution with the ``script`` command.  In fact, there is a
+   built-in example script that can be run with the command
+   ``script --dry-run=false --example squarewave``, that effectively
+   executes all of the previous commands executed so far in this
+   section.  For details of the script command, enter ``script -h`` to
+   see detail help on this command.
+
+Step-by-Step Tracing
+--------------------
+
 Now we are ready for tracing into the program.  For verification of
 the GPIO's status, we use again the ``gpio`` command, but this time without passing any option.  It displays the current status of all of the 32 GPIO pins:
 
 .. figure:: images/monitor-gpio-view.png
-   :scale: 50 %
+   :scale: 80%
    :alt: Enable State Machine 0
 
    GPIO Pins Status View
@@ -223,7 +246,7 @@ A window opens and shows that all GPIO pins in accordance with what
 our monitor command ``gpio`` returned.
 
 .. figure:: images/gpio-observer-monitor-0.png
-   :scale: 50 %
+   :scale: 80%
    :alt: GPIO Pins Status View by GPIO Observer
 
    GPIO Pins Status View by GPIO Observer
@@ -260,8 +283,8 @@ graphical application:
    +-----------------+
 
 With the next cycle, PIO instruction ``01: e101 set pins, 01 side 0
-[1]`` will change the GPIO's output value from ``0``to ``1``, followed
-by a delay cycle.  Due to the one-cycle delay, the two cycles
+[1]`` will change the GPIO's output value from ``0`` to ``1``,
+followed by a delay cycle.  Due to the one-cycle delay, the two cycles
 essentially look identical.
 
 .. |trace-a1| image:: images/monitor-trace-a1.png
@@ -280,11 +303,13 @@ essentially look identical.
    +-----------------+
 
 If we want to couble-check which instruction comes next, we can use
-again the ``unassemble`` command to see the next instruction to be
-executed (after any pending delay or inserted instruction).
+again the unassemble command to see the next instruction to be
+executed (after any pending delay or inserted instruction).  We limit
+the output to only the first four words of instruction memory with the
+optional count argument, thus entering ``unassemble --count=4``.
 
 .. figure:: images/monitor-trace-a2-pc.png
-   :scale: 50 %
+   :scale: 80%
    :alt: View Next Instruction to Be Executed
 
    View Next Instruction to Be Executed
@@ -319,3 +344,50 @@ creating an overall infinite loop consisting of of 3 instructions and
 As overall result, GPIO pin 0 will regularly toggle its output value,
 thus creating a squarewave, as the name of this example program
 suggests.
+
+Multi-Step Tracing
+------------------
+
+For a better view of the PIO programs dynamical behavior, we may trace
+multiple cycles in equidistant intervals of time.  Let us choose to
+perform 20 clock cycles at once, with a pause of 1 second (=1000ms)
+between each cycle and showing the GPIO pins' status after execution
+of each cycle, using the command
+``trace --show-gpio --cycles=12 --wait=1000``.
+
+.. figure:: images/monitor-trace-synced.gif
+   :scale: 80%
+   :alt: View PIO Program Dynamic Behaviour
+
+   View PIO Program Dynamic Behavior
+
+   View the PIO program's dynamic behavior by watching how the GPIO
+   pins are updated over time.
+
+The trace command, now regularly executing clock cycle by clock cycle,
+illustrates how GPIO pin 0 periodically toggles its value.  Display of
+the GPIO pins status as displayed by the monitor trace command and the
+corresponding display of GPIO pins by the GPIO observer are in sync,
+though with possibly a small perceivable delay caused by the
+communication chain *monitor client application* → *emulation server*
+→ *GPIO observer client*.
+
+Ending a Session
+----------------
+
+To ordinarily end a monitor session, just enter the command ``quit``.
+
+.. figure:: images/monitor-quit.png
+   :scale: 80%
+   :alt: Quit Monitor
+
+   Quit Monitor
+
+   Call command ``quit`` to ordinarily exit from the monitor.
+
+Note, that ending the monitor session does not stop the emulator
+server.  You can resume work with the emulator, if still running, at
+any time with starting a new monitor session.  Any program that has
+previously been loaded will still be visible.  However, you can always
+perform the monitor ``reset`` command to reset the emulation server if
+you want to restart a new session from scratch.

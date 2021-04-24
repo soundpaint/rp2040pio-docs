@@ -288,7 +288,7 @@ initial ``reset`` in the script will also reset the clock cycle count
 to start with value 0 upon execution of the next instruction.
 
 .. figure:: images/io-monitor-load-mon.png
-   :scale: 50 %
+   :scale: 80%
    :alt: Prepare Monitor for Debugging Session
 
    Prepare Monitor for Debugging Session
@@ -301,7 +301,7 @@ This step will setup pin directions, and check the result with the
 command ``gpio -p 0`` to see the pins at PIO0.
 
 .. figure:: images/io-monitor-setup-pindirs.png
-   :scale: 50 %
+   :scale: 80%
    :alt: Setup GPIO Pin Directions
 
    Setup GPIO Pin Directions
@@ -316,7 +316,7 @@ signal on GPIO 23.  After startup, the script stops at the first
 cycle 3.
 
 .. figure:: images/io-monitor-external.png
-   :scale: 50 %
+   :scale: 80%
    :alt: Start Monitor Script for Supplying External Signal
 
    Start Monitor Script for Supplying External Signal
@@ -332,7 +332,7 @@ can easier follow what happens.  Options ``-g`` and ``-p 0`` will show
 us the GPIO pins for each cycle as seen by PIO0.
 
 .. figure:: images/io-monitor-sync.gif
-   :scale: 50 %
+   :scale: 80%
    :alt: PIO Program Run With Synchronized External Signal Input
 
    PIO Program Run With Synchronized External Signal Input

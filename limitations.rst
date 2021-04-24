@@ -8,18 +8,19 @@ approach conflicts is to use only one instance of a client for
 modifying the emulator's state (i.e. a single Monitor instance), but
 as many read-only clients as desired.
 
-Concurrent Instruction Memory Allocation and Access
----------------------------------------------------
+Concurrency
+-----------
 
-For example, no one prevents you from starting *two* instances of a
-Monitor client, that both write program instructions into the same or
-at least overlapping memory areas.  The Raspberry Pi foundation's Pico
-C SDK provides special methods to *allocate* instruction memory, thus
-preventing you from *accidentally* loading a program into a memory
-area that is already in use.  Note that allocation is a feature of the
-Pico C SDK, and not of the RP2040 itself.  This works well as long as
-there is only a single instance of the Pico C SDK running, which
-usually applies.
+The probably most prominent concurrency issue is concurrent allocation
+and access of instruction memory.  For example, no one prevents you
+from starting *two* instances of a Monitor client, that both write
+program instructions into the same or at least overlapping memory
+areas.  The Raspberry Pi foundation's Pico C SDK provides special
+methods to *allocate* instruction memory, thus preventing you from
+*accidentally* loading a program into a memory area that is already in
+use.  Note that allocation is a feature of the Pico C SDK, and not of
+the RP2040 itself.  This works well as long as there is only a single
+instance of the Pico C SDK running, which usually applies.
 
 The RP2040 emulator provides its own Java SDK that provides methods
 equivalent to the functions of the Pico C SDK (but limited to those
