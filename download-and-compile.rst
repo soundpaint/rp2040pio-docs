@@ -2,7 +2,7 @@ Download & Compile
 ==================
 
 The RP2040 Emulator is published as open source under GPL v2 and
-available on Github under the following URL:
+available on Github under the following URL [Reuter21a]_:
 
 https://github.com/soundpaint/rp2040pio
 
