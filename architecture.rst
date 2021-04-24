@@ -29,6 +29,63 @@ relavant for emulating the complete PIO's logic, including:
 * interfacing with GPIO, FIFO, and DMA,
 * IRQ handling.
 
+Emulator Timing
+---------------
+
+Emulation itself is based on a master clock thread with the notion of
+a *virtual* time called *wallclock time* (in contrast to the *system
+time* of the underlying operating system that the emulator runs on).
+Each clock cycle is subdivided into two phases 0 and 1:
+
+* With the start of phase 0, the emulator performs instruction fetch &
+  decode.
+* With the start of phase 1, the emulator performs instruction
+  execution.
+
+If the emulator has performed all operations for the current phase,
+this phase is said to become *stable*.  Until then, the phase is said
+to be *in progress*.
+
+The emulator's master clock can run in either *realtime mode* or in
+*triggered mode*.
+
+* In *realtime mode*, there is a linear mapping of wallclock time onto
+  system time, representing emulation speed and start time of an
+  emulation run.  The master clock runs autonomously in a thread of
+  its own and continously invokes the emulator to alternately execute
+  phase 0 and phase 1 in a loop.  Whenever a phase has become stable
+  (i.e. control flow returns back from the emulator to the master
+  clock's thread), then the master clock will wait until the wallclock
+  time is behind the system time (according to the specified mapping).
+  Only then, it will invoke the emulator for executing the next phase.
+* In *triggered mode*, a client application explicitly triggers
+  execution of the next phase, thus enabling a client to process in
+  single-step mode when tracing a PIO program.  It can do so only
+  after the previous phase has become stable.  Otherwise, the trigger
+  will block until then.
+
+For best stability of the overall emulation, client applications are
+advised to
+
+* observe emulator state for visualization when phase 1 has become
+  stable (i.e. immediately after instruction execution, such that
+  changes are instantaneously displayed) and
+* modify emulator state variables when phase 0 has become stable
+  (i.e. immediately before instruction execution, such that
+  modifications will immediately affect the emulation).
+
+.. figure:: images/phases.png
+   :scale: 80%
+   :alt: Master Clock Phases
+
+   Master Clock Phases
+
+   The master clock toggles between phases 0 and 1.  The phases become
+   stable after the emulator is done with instruction fetch & decode
+   (phase 0) or instruction execute (phase 1).  Clients are advised to
+   modify emulator state during stable phase 0 and observe state
+   during stable phase 1.
+
 Register Facade
 ---------------
 

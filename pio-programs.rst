@@ -51,11 +51,16 @@ there are highly specialized machine operations
   op-codes with the MOV EXEC instruction.
 
 Also, single instructions can be inserted for execution at any clock
-cycle from external sources.  Not surprisingly, there is, at least as
-of now, no high-level programming language available that would
-automatically translate into this very special machine language.  In
-other words, at the best, PIO programs are coded with native assembler
-instructions that directly translate into machine language op-codes.
+cycle from external sources.  Moreover, each instruction has a few
+bits reserved for *side-set* and / or instruction delay.  *Side-set*
+allows for further direct bit manipulations on GPIO pins and is
+executed in parallel and independently from the actual instruction.
+
+Not surprisingly, there is, at least as of now, no high-level
+programming language available that would automatically translate into
+this very special machine language.  In other words, at the best, PIO
+programs are coded with native assembler instructions that directly
+translate into machine language op-codes.
 
 .. table:: PIO Instruction Set
 

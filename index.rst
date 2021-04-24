@@ -70,7 +70,7 @@ develop programs for the PIO.
    :maxdepth: 2
    :caption: Getting Started
 
-   motivation
+   pio-programs
    overview
    download-and-compile
 
