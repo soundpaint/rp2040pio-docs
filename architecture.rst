@@ -7,7 +7,7 @@ The RP2040 PIO emulator has been designed to implement a client-server
 architecture.
 
 .. figure:: images/server.png
-   :scale: 80%
+   :scale: 40%
    :alt: Emulation Server
 
    Emulation Server
@@ -33,7 +33,7 @@ Emulator Timing
 ---------------
 
 Emulation itself is based on a master clock thread with the notion of
-a *virtual* time called *wallclock time* (in contrast to the *system
+a virtual time called *wallclock time* (in contrast to the *system
 time* of the underlying operating system that the emulator runs on).
 Each clock cycle is subdivided into two phases 0 and 1:
 
@@ -75,16 +75,16 @@ advised to
   modifications will immediately affect the emulation).
 
 .. figure:: images/phases.png
-   :scale: 80%
+   :scale: 40%
    :alt: Master Clock Phases
 
    Master Clock Phases
 
-   The master clock toggles between phases 0 and 1.  The phases become
-   stable after the emulator is done with instruction fetch & decode
-   (phase 0) or instruction execute (phase 1).  Clients are advised to
-   modify emulator state during stable phase 0 and observe state
-   during stable phase 1.
+   For each cycle, the master clock toggles between phases 0 and 1.
+   The phases become stable after the emulator is done with
+   instruction fetch & decode (phase 0) or instruction execution
+   (phase 1).  Clients are advised to modify emulator state during
+   stable phase 0 and observe state during stable phase 1.
 
 Register Facade
 ---------------
@@ -114,8 +114,11 @@ value from an emulator's address-based register, writing to an
 emulator's adress-based register, and just a view more helper
 functions.
 
+Register Client
+---------------
+
 .. figure:: images/client.png
-   :scale: 80%
+   :scale: 40%
    :alt: Client Application
 
    Client Application
@@ -125,9 +128,6 @@ functions.
    core application that builds upon the SDK or directly upon the
    remote register facade, which are connected to the remote server
    via the register client.
-
-Register Client
----------------
 
 The register client is just another implementation of the above
 *register facade*, that, however, does not directly communicate with a
@@ -165,7 +165,7 @@ emulation server rather than depending on a particular language
 binding.
 
 .. figure:: images/client-server.png
-   :scale: 80%
+   :scale: 40%
    :alt: Client-Server Architecture
 
    Client-Server Architecture

@@ -179,7 +179,7 @@ The program makes use of GPIO 0 as output.  Since many blocks of the
 RP2040 can potentially output data to this pin, we have to tell that
 our current PIO, PIO0, claims to make use of this pin.  For this
 purpose, we execute the following monitor command
-``gpio --pio=0 --gpio=0 -i``.
+``gpio --pio=0 --gpio=0 --init``.
 
 .. figure:: images/monitor-gpio-init.png
    :scale: 80%

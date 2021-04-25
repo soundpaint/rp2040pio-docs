@@ -3,7 +3,7 @@
 .. # DO NOT CHANGE THIS FILE, since changes will be lost upon
 .. # its next update.  Instead, change the info in the source code.
 .. # This file was automatically created on:
-.. # 2021-04-23T01:43:29.448596Z
+.. # 2021-04-25T20:58:31.745993Z
 
 .. _section-top_emulator_pio_registers:
 
@@ -48,7 +48,7 @@ register set for each of the two PIOs) is
    0x044, :ref:`SM0_PENDING_DELAY <SM0_PENDING_DELAY-details-label>`, "Direct read-only access to the SM's number of pending delay cycles."
    0x048, :ref:`SM0_CLK_ENABLE <SM0_CLK_ENABLE-details-label>`, "Read-only access to the SM's delay status."
    0x04c, :ref:`SM0_BREAKPOINTS <SM0_BREAKPOINTS-details-label>`, "Each bit of this values corresponds to each of the 32 memory locations of the PIO instruction memory (with the LSB of the word corresponding to the lowest memory address).  Setting a bit to 1 marks the corresponding memory address as location of a breakpoint.  Setting a bit to 0 removes the breakpoint.  As soon as the program counter of the state machine reaches an address that is marked as a breakpoint, master clock MASTERCLK_MODE will be automatically set to single step mode."
-   0x050, :ref:`SM0_TRACEPOINTS <SM0_TRACEPOINTS-details-label>`, "Tracepoints work like breakpoints with the difference that master clock MASTERCLK_MODE it not automatically set to single step mode, but instead a message is printed to console output.  The message contains the state machine's number and disassembled instruction with prefixed instruction memory address.  Tracepoints work in all master clock MASTERCLK_MODE modes."
+   0x050, :ref:`SM0_TRACEPOINTS <SM0_TRACEPOINTS-details-label>`, "Tracepoints work like breakpoints with the difference that master clock MASTERCLK_MODE it not automatically set to single step mode, but instead a message is typically printed to console output (depending on the specific client application).  The message may, for example, caontain the state machine's number and disassembled instruction with prefixed instruction memory address.  Tracepoints work in all master clock MASTERCLK_MODE modes."
    0x054, :ref:`SM1_REGX <SM1_REGX-details-label>`, "Direct read / write access to the SM's scratch register X."
    0x058, :ref:`SM1_REGY <SM1_REGY-details-label>`, "Direct read / write access to the SM's scratch register Y."
    0x05c, :ref:`SM1_PC <SM1_PC-details-label>`, "Direct read-only access to the SM's instruction pointer / program counter."
@@ -69,7 +69,7 @@ register set for each of the two PIOs) is
    0x098, :ref:`SM1_PENDING_DELAY <SM1_PENDING_DELAY-details-label>`, "Direct read-only access to the SM's number of pending delay cycles."
    0x09c, :ref:`SM1_CLK_ENABLE <SM1_CLK_ENABLE-details-label>`, "Read-only access to the SM's delay status."
    0x0a0, :ref:`SM1_BREAKPOINTS <SM1_BREAKPOINTS-details-label>`, "Each bit of this values corresponds to each of the 32 memory locations of the PIO instruction memory (with the LSB of the word corresponding to the lowest memory address).  Setting a bit to 1 marks the corresponding memory address as location of a breakpoint.  Setting a bit to 0 removes the breakpoint.  As soon as the program counter of the state machine reaches an address that is marked as a breakpoint, master clock MASTERCLK_MODE will be automatically set to single step mode."
-   0x0a4, :ref:`SM1_TRACEPOINTS <SM1_TRACEPOINTS-details-label>`, "Tracepoints work like breakpoints with the difference that master clock MASTERCLK_MODE it not automatically set to single step mode, but instead a message is printed to console output.  The message contains the state machine's number and disassembled instruction with prefixed instruction memory address.  Tracepoints work in all master clock MASTERCLK_MODE modes."
+   0x0a4, :ref:`SM1_TRACEPOINTS <SM1_TRACEPOINTS-details-label>`, "Tracepoints work like breakpoints with the difference that master clock MASTERCLK_MODE it not automatically set to single step mode, but instead a message is typically printed to console output (depending on the specific client application).  The message may, for example, caontain the state machine's number and disassembled instruction with prefixed instruction memory address.  Tracepoints work in all master clock MASTERCLK_MODE modes."
    0x0a8, :ref:`SM2_REGX <SM2_REGX-details-label>`, "Direct read / write access to the SM's scratch register X."
    0x0ac, :ref:`SM2_REGY <SM2_REGY-details-label>`, "Direct read / write access to the SM's scratch register Y."
    0x0b0, :ref:`SM2_PC <SM2_PC-details-label>`, "Direct read-only access to the SM's instruction pointer / program counter."
@@ -90,7 +90,7 @@ register set for each of the two PIOs) is
    0x0ec, :ref:`SM2_PENDING_DELAY <SM2_PENDING_DELAY-details-label>`, "Direct read-only access to the SM's number of pending delay cycles."
    0x0f0, :ref:`SM2_CLK_ENABLE <SM2_CLK_ENABLE-details-label>`, "Read-only access to the SM's delay status."
    0x0f4, :ref:`SM2_BREAKPOINTS <SM2_BREAKPOINTS-details-label>`, "Each bit of this values corresponds to each of the 32 memory locations of the PIO instruction memory (with the LSB of the word corresponding to the lowest memory address).  Setting a bit to 1 marks the corresponding memory address as location of a breakpoint.  Setting a bit to 0 removes the breakpoint.  As soon as the program counter of the state machine reaches an address that is marked as a breakpoint, master clock MASTERCLK_MODE will be automatically set to single step mode."
-   0x0f8, :ref:`SM2_TRACEPOINTS <SM2_TRACEPOINTS-details-label>`, "Tracepoints work like breakpoints with the difference that master clock MASTERCLK_MODE it not automatically set to single step mode, but instead a message is printed to console output.  The message contains the state machine's number and disassembled instruction with prefixed instruction memory address.  Tracepoints work in all master clock MASTERCLK_MODE modes."
+   0x0f8, :ref:`SM2_TRACEPOINTS <SM2_TRACEPOINTS-details-label>`, "Tracepoints work like breakpoints with the difference that master clock MASTERCLK_MODE it not automatically set to single step mode, but instead a message is typically printed to console output (depending on the specific client application).  The message may, for example, caontain the state machine's number and disassembled instruction with prefixed instruction memory address.  Tracepoints work in all master clock MASTERCLK_MODE modes."
    0x0fc, :ref:`SM3_REGX <SM3_REGX-details-label>`, "Direct read / write access to the SM's scratch register X."
    0x100, :ref:`SM3_REGY <SM3_REGY-details-label>`, "Direct read / write access to the SM's scratch register Y."
    0x104, :ref:`SM3_PC <SM3_PC-details-label>`, "Direct read-only access to the SM's instruction pointer / program counter."
@@ -111,7 +111,7 @@ register set for each of the two PIOs) is
    0x140, :ref:`SM3_PENDING_DELAY <SM3_PENDING_DELAY-details-label>`, "Direct read-only access to the SM's number of pending delay cycles."
    0x144, :ref:`SM3_CLK_ENABLE <SM3_CLK_ENABLE-details-label>`, "Read-only access to the SM's delay status."
    0x148, :ref:`SM3_BREAKPOINTS <SM3_BREAKPOINTS-details-label>`, "Each bit of this values corresponds to each of the 32 memory locations of the PIO instruction memory (with the LSB of the word corresponding to the lowest memory address).  Setting a bit to 1 marks the corresponding memory address as location of a breakpoint.  Setting a bit to 0 removes the breakpoint.  As soon as the program counter of the state machine reaches an address that is marked as a breakpoint, master clock MASTERCLK_MODE will be automatically set to single step mode."
-   0x14c, :ref:`SM3_TRACEPOINTS <SM3_TRACEPOINTS-details-label>`, "Tracepoints work like breakpoints with the difference that master clock MASTERCLK_MODE it not automatically set to single step mode, but instead a message is printed to console output.  The message contains the state machine's number and disassembled instruction with prefixed instruction memory address.  Tracepoints work in all master clock MASTERCLK_MODE modes."
+   0x14c, :ref:`SM3_TRACEPOINTS <SM3_TRACEPOINTS-details-label>`, "Tracepoints work like breakpoints with the difference that master clock MASTERCLK_MODE it not automatically set to single step mode, but instead a message is typically printed to console output (depending on the specific client application).  The message may, for example, caontain the state machine's number and disassembled instruction with prefixed instruction memory address.  Tracepoints work in all master clock MASTERCLK_MODE modes."
    0x150, :ref:`INSTR_MEM0 <INSTR_MEM0-details-label>`, "Read / write access to instruction memory word."
    0x154, :ref:`INSTR_MEM1 <INSTR_MEM1-details-label>`, "Read / write access to instruction memory word."
    0x158, :ref:`INSTR_MEM2 <INSTR_MEM2-details-label>`, "Read / write access to instruction memory word."
@@ -461,10 +461,12 @@ to single step mode.
 Tracepoints work like breakpoints with the difference
 that master clock MASTERCLK_MODE it not automatically
 set to single step mode, but instead a message is
-printed to console output.  The message contains the
-state machine's number and disassembled instruction
-with prefixed instruction memory address.  Tracepoints
-work in all master clock MASTERCLK_MODE modes.
+typically printed to console output (depending on
+the specific client application).  The message may,
+for example, caontain the state machine's number and
+disassembled instruction with prefixed instruction
+memory address.  Tracepoints work in all master clock
+MASTERCLK_MODE modes.
 
 .. csv-table::
    :header: Bits, Name, Description, Type, Reset
