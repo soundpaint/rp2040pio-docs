@@ -1,7 +1,7 @@
 GPIO Observer
 =============
 
-The GPIO Observer serves as a simple example that illustrates how to
+The *GPIO Observer* serves as a simple example that illustrates how to
 implement a small emulation client.  Its sole purpose is to display
 the current status of all of the emulator's 32 GPIO pins.
 

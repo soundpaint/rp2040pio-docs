@@ -27,6 +27,7 @@ Basic Blocks
 
    architecture
    emulation-server
+   clients
 
 Working With Client Applications
 --------------------------------
@@ -38,6 +39,7 @@ Working With Client Applications
    Monitor Client <monitor>
    diagram
    gpio-observer
+   code-observer
    External Data <io>
 
 Epilogue
