@@ -3,7 +3,7 @@
 .. # DO NOT CHANGE THIS FILE, since changes will be lost upon
 .. # its next update.  Instead, change the info in the source code.
 .. # This file was automatically created on:
-.. # 2021-04-25T20:58:31.745993Z
+.. # 2021-05-01T17:31:40.475771Z
 
 .. _section-top_emulator_pio_registers:
 
@@ -144,8 +144,17 @@ register set for each of the two PIOs) is
    0x1c4, :ref:`INSTR_MEM29 <INSTR_MEM29-details-label>`, "Read / write access to instruction memory word."
    0x1c8, :ref:`INSTR_MEM30 <INSTR_MEM30-details-label>`, "Read / write access to instruction memory word."
    0x1cc, :ref:`INSTR_MEM31 <INSTR_MEM31-details-label>`, "Read / write access to instruction memory word."
-   0x1d0, :ref:`GPIO_PINS <GPIO_PINS-details-label>`, "Direct read / write access to all of the 32 GPIO pins."
-   0x1d4, :ref:`GPIO_PINDIRS <GPIO_PINDIRS-details-label>`, "Direct read / write access to all of the 32 GPIO pin directions."
+   0x1d0, :ref:`TXF0 <TXF0-details-label>`, "Direct read access to the TX FIFO for the corresponding state machine.  Each read pops one word from the FIFO. Attempting to read from an empty FIFO has no effect on the FIFO state, and sets the sticky FDEBUG_TXUNDER error flag for this FIFO. The data returned to the system on a read from an empty FIFO is undefined."
+   0x1d4, :ref:`TXF1 <TXF1-details-label>`, "Direct read access to the TX FIFO for the corresponding state machine.  Each read pops one word from the FIFO. Attempting to read from an empty FIFO has no effect on the FIFO state, and sets the sticky FDEBUG_TXUNDER error flag for this FIFO. The data returned to the system on a read from an empty FIFO is undefined."
+   0x1d8, :ref:`TXF2 <TXF2-details-label>`, "Direct read access to the TX FIFO for the corresponding state machine.  Each read pops one word from the FIFO. Attempting to read from an empty FIFO has no effect on the FIFO state, and sets the sticky FDEBUG_TXUNDER error flag for this FIFO. The data returned to the system on a read from an empty FIFO is undefined."
+   0x1dc, :ref:`TXF3 <TXF3-details-label>`, "Direct read access to the TX FIFO for the corresponding state machine.  Each read pops one word from the FIFO. Attempting to read from an empty FIFO has no effect on the FIFO state, and sets the sticky FDEBUG_TXUNDER error flag for this FIFO. The data returned to the system on a read from an empty FIFO is undefined."
+   0x1e0, :ref:`RXF0 <RXF0-details-label>`, "Direct write access to the RX FIFO for the corresponding state machine.  Each write pushes one word to the FIFO.  Attempting to write to a full FIFO has no effect on the FIFO state or contents, and sets the sticky FDEBUG_RXOVER error flag for this FIFO."
+   0x1e4, :ref:`RXF1 <RXF1-details-label>`, "Direct write access to the RX FIFO for the corresponding state machine.  Each write pushes one word to the FIFO.  Attempting to write to a full FIFO has no effect on the FIFO state or contents, and sets the sticky FDEBUG_RXOVER error flag for this FIFO."
+   0x1e8, :ref:`RXF2 <RXF2-details-label>`, "Direct write access to the RX FIFO for the corresponding state machine.  Each write pushes one word to the FIFO.  Attempting to write to a full FIFO has no effect on the FIFO state or contents, and sets the sticky FDEBUG_RXOVER error flag for this FIFO."
+   0x1ec, :ref:`RXF3 <RXF3-details-label>`, "Direct write access to the RX FIFO for the corresponding state machine.  Each write pushes one word to the FIFO.  Attempting to write to a full FIFO has no effect on the FIFO state or contents, and sets the sticky FDEBUG_RXOVER error flag for this FIFO."
+   0x1f0, :ref:`FREAD_PTR <FREAD_PTR-details-label>`, "Read pointers of all of the SM's TX and RX FIFOs."
+   0x1f4, :ref:`GPIO_PINS <GPIO_PINS-details-label>`, "Direct read / write access to all of the 32 GPIO pins."
+   0x1f8, :ref:`GPIO_PINDIRS <GPIO_PINDIRS-details-label>`, "Direct read / write access to all of the 32 GPIO pin directions."
 
 .. _SM0_REGX-details-label:
 .. _SM1_REGX-details-label:
@@ -549,12 +558,68 @@ MASTERCLK_MODE modes.
 
    31:0, ―, "Read / write access to instruction memory word.", RW, 0
 
+.. _TXF0-details-label:
+.. _TXF1-details-label:
+.. _TXF2-details-label:
+.. _TXF3-details-label:
+
+:ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: TXF0, TXF1, TXF2, TXF3 Registers
+----------------------------------------------------------------------------------------------------
+
+**Offsets:** 0x1d0, 0x1d4, 0x1d8, 0x1dc
+
+.. csv-table::
+   :header: Bits, Name, Description, Type, Reset
+   :widths: 8, 20, 40, 8, 20
+
+   31:0, ―, "Direct read access to the TX FIFO for the corresponding state machine.  Each read pops one word from the FIFO. Attempting to read from an empty FIFO has no effect on the FIFO state, and sets the sticky FDEBUG_TXUNDER error flag for this FIFO. The data returned to the system on a read from an empty FIFO is undefined.", RF, ―
+
+.. _RXF0-details-label:
+.. _RXF1-details-label:
+.. _RXF2-details-label:
+.. _RXF3-details-label:
+
+:ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: RXF0, RXF1, RXF2, RXF3 Registers
+----------------------------------------------------------------------------------------------------
+
+**Offsets:** 0x1e0, 0x1e4, 0x1e8, 0x1ec
+
+.. csv-table::
+   :header: Bits, Name, Description, Type, Reset
+   :widths: 8, 20, 40, 8, 20
+
+   31:0, ―, "Direct write access to the RX FIFO for the corresponding state machine.  Each write pushes one word to the FIFO.  Attempting to write to a full FIFO has no effect on the FIFO state or contents, and sets the sticky FDEBUG_RXOVER error flag for this FIFO.", WF, 0
+
+.. _FREAD_PTR-details-label:
+
+:ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: FREAD_PTR Register
+--------------------------------------------------------------------------------------
+
+**Offset:** 0x1f0
+
+**Description**
+
+Read pointers of all of the SM's TX and RX FIFOs.
+
+.. csv-table::
+   :header: Bits, Name, Description, Type, Reset
+   :widths: 8, 20, 40, 8, 20
+
+   31:28, TXF0_READ_PTR, "Offset (0…7) within FIFO memory for the next FIFO read operation", RO, 0
+   27:24, RXF0_READ_PTR, "Offset (0…7) within FIFO memory for the next FIFO read operation", RO, 0
+   23:20, TXF1_READ_PTR, "Offset (0…7) within FIFO memory for the next FIFO read operation", RO, 0
+   19:16, RXF1_READ_PTR, "Offset (0…7) within FIFO memory for the next FIFO read operation", RO, 0
+   15:12, TXF2_READ_PTR, "Offset (0…7) within FIFO memory for the next FIFO read operation", RO, 0
+   11:8, RXF2_READ_PTR, "Offset (0…7) within FIFO memory for the next FIFO read operation", RO, 0
+   7:4, TXF3_READ_PTR, "Offset (0…7) within FIFO memory for the next FIFO read operation", RO, 0
+   3:0, RXF3_READ_PTR, "Offset (0…7) within FIFO memory for the next FIFO read operation", RO, 0
+
 .. _GPIO_PINS-details-label:
 
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: GPIO_PINS Register
 --------------------------------------------------------------------------------------
 
-**Offset:** 0x1d0
+**Offset:** 0x1f4
 
 **Description**
 
@@ -602,7 +667,7 @@ Direct read / write access to all of the 32 GPIO pins.
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: GPIO_PINDIRS Register
 -----------------------------------------------------------------------------------------
 
-**Offset:** 0x1d4
+**Offset:** 0x1f8
 
 **Description**
 

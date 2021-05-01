@@ -1,3 +1,5 @@
+.. _section-top_gpio-observer:
+
 GPIO Observer
 =============
 

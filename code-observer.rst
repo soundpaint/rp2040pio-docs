@@ -1,3 +1,5 @@
+.. _section-top_code-observer:
+
 Code Observer
 =============
 

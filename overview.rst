@@ -1,14 +1,14 @@
 Overview
 ========
 
-The typical overall workflow of work with the RP2020 PIO Emulator may
+The typical overall flow of work with the RP2020 PIO Emulator may
 roughly follow the subsequent pattern.
 
 Start Emulation Server
 ----------------------
 
 In a typical development / debugging session, one will begin with
-starting a server instance. ::
+:ref:`starting a server instance.<section-top_emulation-server>` ::
 
    $ java -jar ../rp2040pio/jar/rp2040pio_server.jar
    Emulation Server Daemon
@@ -20,9 +20,9 @@ starting a server instance. ::
 Start Monitor Session
 ---------------------
 
-Next, a monitor instance can be used to load, modify, trace and save
-PIO programs and inspect the current state of all state machines or
-any other parts of the emulator. ::
+Next, a :ref:`monitor instance<section-top_monitor>` can be used to
+load, modify, trace and save PIO programs and inspect the current
+state of all state machines or any other parts of the emulator. ::
 
   java -jar rp2040pio_monitor.jar
 
@@ -41,8 +41,9 @@ Start the GPIO Observer
 For continuously observing the state of registers, entering register
 queries over and over again on the monitor's command line is tedious
 work.  Therefore, there are specialized client applications such as
-for example the GPIO Observer, that continuously visualizes the
-current state of GPIO pins without further need for interaction. ::
+for example the :ref:`GPIO Observer<section-top_gpio-observer>`, that
+continuously visualizes the current state of GPIO pins without further
+need for interaction. ::
 
   java -jar rp2040pio_gpioobserver.jar
 
@@ -62,7 +63,8 @@ Start the Code Observer
 -----------------------
 
 For tracing programs, it may be useful to automatically see the PIO
-program's progress as it proceeds through the code. ::
+program's progress as it proceeds through the code, using the
+:ref:`Code Observer<section-top_code-observer>` client application. ::
 
   java -jar rp2040pio_codeobserver.jar
 
@@ -78,6 +80,29 @@ application's *trace* command to follow a PIO program's control flow.
    The Code Observer visualizes a PIO program's progress in the
    instruction memory for a specific state machine.
 
+Start the FIFO Observer
+-----------------------
+
+For observing the FIFO contents of any of the two PIO's state
+machines, use the :ref:`FIFO Observer<section-top_fifo-observer>`
+client application. ::
+
+  java -jar rp2040pio_fifoobserver.jar
+
+This tool is particularly useful in combination with the monitor
+application's *trace* command to follow a PIO program's effect on a
+state machine's FIFOs.  The monitor also provides the command ``fifo``
+for directly modifying a FIFO's contents and state of joining.
+
+.. figure:: images/fifo-observer.png
+   :scale: 80%
+   :alt: FIFO Observer Application
+
+   FIFO Observer Application
+
+   The FIFO Observer visualizes a selected state machine's contents of
+   its FIFOs.
+
 Draw Timing Diagrams
 --------------------
 
@@ -87,8 +112,8 @@ output signals are essential for developing, debugging, understanding
 and working with PIO programs.  Therefore, timing diagrams are a
 highly valuable tool not only for developing and debugging, but also
 for documenting functionality and effect of PIO programs.  Like all
-other client applications, TimingDiagram is ready to run as Jar
-file. ::
+other client applications, :ref:`TimingDiagram<section-top_diagram>`
+is ready to run as Jar file. ::
 
   java -jar rp2040pio_diagram.jar
 

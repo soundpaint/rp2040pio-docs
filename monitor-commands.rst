@@ -3,7 +3,7 @@
 .. # DO NOT CHANGE THIS FILE, since changes will be lost upon
 .. # its next update.  Instead, change the info in the source code.
 .. # This file was automatically created on:
-.. # 2021-04-23T01:43:29.188457Z
+.. # 2021-05-01T17:31:40.243736Z
 
 Monitor & Control Program Commands Reference
 ============================================
@@ -241,11 +241,19 @@ display or change internal state machine's FIFO status
   -a, --address=ADDRESS (mandatory: no)
             FIFO memory address (0x0…0x7) to write value into
   -v, --value=VALUE (mandatory: no)
-            value to write into FIFO memory
-  +r / -r, --joinrx (mandatory: no)
-            let RX FIFO steal TX FIFO's storage
-  +t / -t, --jointx (mandatory: no)
-            let TX FIFO steal RX FIFO's storage
+            value to enqueue or directly write into FIFO memory
+  -d, --dequeue (default: off)
+            dequeue value from either RX or TX FIFO
+  -e, --enqueue (default: off)
+            enqueue value provided with option -v into either RX or TX FIFO
+  -j, --join (default: off)
+            let either RX or TX FIFO steal the other FIFO's storage
+  -u, --unjoin (default: off)
+            revoke join operation of either RX or TX FIFO
+  -t, --tx (default: off)
+            apply modification on TX FIFO
+  -r, --rx (default: off)
+            apply modification on RX FIFO
   -h, --help (default: off)
             display this help text and exit
 
@@ -254,8 +262,11 @@ display or change internal state machine's FIFO status
 
 If none of the FIFO modification options is specified, the status
 of the FIFO of the selected is displayed.
+Option '-a' together with option '-v' can be used for directly
+low-level write a value into one of the 8 FIFO's data registers.
 Otherwise, for all specified modification options, the corresponding
-these modifications will be performed for the selected state machine.
+modifications will be performed for the selected state machine and
+the selected FIFO (either RX or TX).
 
 :ref:`Back to Overview <commands-overview>`
 

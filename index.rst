@@ -40,6 +40,7 @@ Working With Client Applications
    diagram
    gpio-observer
    code-observer
+   fifo-observer
    External Data <io>
 
 Epilogue

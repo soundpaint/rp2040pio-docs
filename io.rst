@@ -1,3 +1,5 @@
+.. _section-top_io:
+
 Interfacing With External Data
 ==============================
 

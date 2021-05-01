@@ -16,8 +16,8 @@ Prerequisites
 
 List of required software:
 
-* Java OpenJDK 11.x (other versions should also work, but have not
-  been tested)
+* Java OpenJDK 11.x (other recent versions should also work, but have
+  not been tested)
 * GNU Make
 * Git
 
