@@ -65,6 +65,12 @@ default value and a short description of the option.
   first a major rewrite of the parser has to be taken before the
   syntax can be updated.
 
+Entering an empty line will just do no operation at all.  Empty lines
+may be useful in monitor scripts for visually structuring command
+sequences into separate sections.  For further details on command-line
+parsing, such as escaping special characters, see the :ref:`Section on
+command-line syntax <section-top_cmd-syntax>`.
+
 Next, we give a short survey over a selected set of the monitor's
 feature with an example session.
 

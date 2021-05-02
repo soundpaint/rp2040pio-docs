@@ -61,6 +61,7 @@ User Reference Documentation
    :maxdepth: 2
    :caption: Appendix A: User Reference Documentation
 
+   command-line-syntax
    Monitor commands <monitor-commands>
    Socket API <socket-api>
 
