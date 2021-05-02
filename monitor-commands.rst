@@ -3,7 +3,7 @@
 .. # DO NOT CHANGE THIS FILE, since changes will be lost upon
 .. # its next update.  Instead, change the info in the source code.
 .. # This file was automatically created on:
-.. # 2021-05-01T17:31:40.243736Z
+.. # 2021-05-02T08:19:17.536278Z
 
 Monitor & Control Program Commands Reference
 ============================================
@@ -13,6 +13,9 @@ just *monitor*, features a set of built-in
 commands with integrated, self-documenting
 help.  The following reference documentation
 has been compiled from these sources.
+
+.. index::
+   single: monitor; commands overview
 
 .. _commands-overview:
 
@@ -51,6 +54,10 @@ listed below.
    ":ref:`wrap <wrap-command-label>`","display or control a state machine's wrap and wrap target configuration"
    ":ref:`write <write-command-label>`","low-level write access to a register"
 
+.. index::
+   single: monitor command; breakpoints
+   single: breakpoints
+
 .. _breakpoints-command-label:
 
 breakpoints
@@ -87,6 +94,10 @@ For displaying breakpoints, use the "unassemble" command.
 
 :ref:`Back to Overview <commands-overview>`
 
+.. index::
+   single: monitor command; clear
+   single: clear
+
 .. _clear-command-label:
 
 clear
@@ -111,6 +122,10 @@ clear screen and optionally scrollback buffer
             display this help text and exit
 
 :ref:`Back to Overview <commands-overview>`
+
+.. index::
+   single: monitor command; enable
+   single: enable
 
 .. _enable-command-label:
 
@@ -141,6 +156,10 @@ enable or disable state machine(s) or show if enabled
 
 :ref:`Back to Overview <commands-overview>`
 
+.. index::
+   single: monitor command; enter
+   single: enter
+
 .. _enter-command-label:
 
 enter
@@ -169,6 +188,10 @@ enter instruction opcodes; exit by entering an empty line
             display this help text and exit
 
 :ref:`Back to Overview <commands-overview>`
+
+.. index::
+   single: monitor command; execute
+   single: execute
 
 .. _execute-command-label:
 
@@ -215,6 +238,10 @@ If option -i is specified, the specified instruction is written
 for immediate execution.
 
 :ref:`Back to Overview <commands-overview>`
+
+.. index::
+   single: monitor command; fifo
+   single: fifo
 
 .. _fifo-command-label:
 
@@ -269,6 +296,10 @@ modifications will be performed for the selected state machine and
 the selected FIFO (either RX or TX).
 
 :ref:`Back to Overview <commands-overview>`
+
+.. index::
+   single: monitor command; gpio
+   single: gpio
 
 .. _gpio-command-label:
 
@@ -328,6 +359,10 @@ after function selection.
 
 :ref:`Back to Overview <commands-overview>`
 
+.. index::
+   single: monitor command; help
+   single: help
+
 .. _help-command-label:
 
 help
@@ -350,6 +385,10 @@ list all available monitor commands
             display this help text and exit
 
 :ref:`Back to Overview <commands-overview>`
+
+.. index::
+   single: monitor command; label
+   single: label
 
 .. _label-command-label:
 
@@ -375,6 +414,10 @@ display a register's label
             display this help text and exit
 
 :ref:`Back to Overview <commands-overview>`
+
+.. index::
+   single: monitor command; load
+   single: load
 
 .. _load-command-label:
 
@@ -447,6 +490,10 @@ of opcodes is 32.
 
 :ref:`Back to Overview <commands-overview>`
 
+.. index::
+   single: monitor command; quit
+   single: quit
+
 .. _quit-command-label:
 
 quit
@@ -469,6 +516,10 @@ quit monitor
             display this help text and exit
 
 :ref:`Back to Overview <commands-overview>`
+
+.. index::
+   single: monitor command; read
+   single: read
 
 .. _read-command-label:
 
@@ -494,6 +545,10 @@ low-level read access to a register
             display this help text and exit
 
 :ref:`Back to Overview <commands-overview>`
+
+.. index::
+   single: monitor command; registers
+   single: registers
 
 .. _registers-command-label:
 
@@ -542,6 +597,10 @@ register is set to the specified value.
 
 :ref:`Back to Overview <commands-overview>`
 
+.. index::
+   single: monitor command; reset
+   single: reset
+
 .. _reset-command-label:
 
 reset
@@ -564,6 +623,10 @@ emulator full reset
             display this help text and exit
 
 :ref:`Back to Overview <commands-overview>`
+
+.. index::
+   single: monitor command; save
+   single: save
 
 .. _save-command-label:
 
@@ -622,6 +685,10 @@ Comment lines start with the hash symbol "#".
 
 :ref:`Back to Overview <commands-overview>`
 
+.. index::
+   single: monitor command; script
+   single: script
+
 .. _script-command-label:
 
 script
@@ -673,6 +740,10 @@ file path of the script, including the ".mon" file name suffix.
 
 :ref:`Back to Overview <commands-overview>`
 
+.. index::
+   single: monitor command; sideset
+   single: sideset
+
 .. _sideset-command-label:
 
 sideset
@@ -720,6 +791,10 @@ those not specified the corresponding settings will keep unmodified.
 
 :ref:`Back to Overview <commands-overview>`
 
+.. index::
+   single: monitor command; trace
+   single: trace
+
 .. _trace-command-label:
 
 trace
@@ -756,6 +831,10 @@ trace program by performing a number of clock cycles
             display this help text and exit
 
 :ref:`Back to Overview <commands-overview>`
+
+.. index::
+   single: monitor command; unassemble
+   single: unassemble
 
 .. _unassemble-command-label:
 
@@ -807,6 +886,10 @@ for displaying the instructions as interpreted by the selected
 state machine, according to its current settings.
 
 :ref:`Back to Overview <commands-overview>`
+
+.. index::
+   single: monitor command; unload
+   single: unload
 
 .. _unload-command-label:
 
@@ -869,6 +952,10 @@ For information about the expected file format, enter the command
 
 :ref:`Back to Overview <commands-overview>`
 
+.. index::
+   single: monitor command; version
+   single: version
+
 .. _version-command-label:
 
 version
@@ -891,6 +978,10 @@ print emulator version
             display this help text and exit
 
 :ref:`Back to Overview <commands-overview>`
+
+.. index::
+   single: monitor command; wait
+   single: wait
 
 .. _wait-command-label:
 
@@ -924,6 +1015,10 @@ wait for a register's bits to match an expected value
             display this help text and exit
 
 :ref:`Back to Overview <commands-overview>`
+
+.. index::
+   single: monitor command; wrap
+   single: wrap
 
 .. _wrap-command-label:
 
@@ -967,6 +1062,10 @@ specified, the corresponding settings will be adjusted, while for
 those not specified the corresponding settings will keep unmodified.
 
 :ref:`Back to Overview <commands-overview>`
+
+.. index::
+   single: monitor command; write
+   single: write
 
 .. _write-command-label:
 

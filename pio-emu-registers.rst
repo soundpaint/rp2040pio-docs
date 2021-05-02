@@ -3,9 +3,13 @@
 .. # DO NOT CHANGE THIS FILE, since changes will be lost upon
 .. # its next update.  Instead, change the info in the source code.
 .. # This file was automatically created on:
-.. # 2021-05-01T17:31:40.475771Z
+.. # 2021-05-02T08:19:17.768160Z
 
 .. _section-top_emulator_pio_registers:
+
+.. index::
+   single: Emulator PIO Registers
+   single: registers set; Emulator PIO Registers
 
 Emulator PIO Registers
 ======================
@@ -161,6 +165,22 @@ register set for each of the two PIOs) is
 .. _SM2_REGX-details-label:
 .. _SM3_REGX-details-label:
 
+.. index::
+   single: register details; SM0_REGX
+   single: SM0_REGX
+
+.. index::
+   single: register details; SM1_REGX
+   single: SM1_REGX
+
+.. index::
+   single: register details; SM2_REGX
+   single: SM2_REGX
+
+.. index::
+   single: register details; SM3_REGX
+   single: SM3_REGX
+
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_REGX, SM1_REGX, SM2_REGX, SM3_REGX Registers
 --------------------------------------------------------------------------------------------------------------------
 
@@ -176,6 +196,22 @@ register set for each of the two PIOs) is
 .. _SM1_REGY-details-label:
 .. _SM2_REGY-details-label:
 .. _SM3_REGY-details-label:
+
+.. index::
+   single: register details; SM0_REGY
+   single: SM0_REGY
+
+.. index::
+   single: register details; SM1_REGY
+   single: SM1_REGY
+
+.. index::
+   single: register details; SM2_REGY
+   single: SM2_REGY
+
+.. index::
+   single: register details; SM3_REGY
+   single: SM3_REGY
 
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_REGY, SM1_REGY, SM2_REGY, SM3_REGY Registers
 --------------------------------------------------------------------------------------------------------------------
@@ -193,6 +229,22 @@ register set for each of the two PIOs) is
 .. _SM2_PC-details-label:
 .. _SM3_PC-details-label:
 
+.. index::
+   single: register details; SM0_PC
+   single: SM0_PC
+
+.. index::
+   single: register details; SM1_PC
+   single: SM1_PC
+
+.. index::
+   single: register details; SM2_PC
+   single: SM2_PC
+
+.. index::
+   single: register details; SM3_PC
+   single: SM3_PC
+
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_PC, SM1_PC, SM2_PC, SM3_PC Registers
 ------------------------------------------------------------------------------------------------------------
 
@@ -208,6 +260,22 @@ register set for each of the two PIOs) is
 .. _SM1_ISR-details-label:
 .. _SM2_ISR-details-label:
 .. _SM3_ISR-details-label:
+
+.. index::
+   single: register details; SM0_ISR
+   single: SM0_ISR
+
+.. index::
+   single: register details; SM1_ISR
+   single: SM1_ISR
+
+.. index::
+   single: register details; SM2_ISR
+   single: SM2_ISR
+
+.. index::
+   single: register details; SM3_ISR
+   single: SM3_ISR
 
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_ISR, SM1_ISR, SM2_ISR, SM3_ISR Registers
 ----------------------------------------------------------------------------------------------------------------
@@ -225,6 +293,22 @@ register set for each of the two PIOs) is
 .. _SM2_ISR_SHIFT_COUNT-details-label:
 .. _SM3_ISR_SHIFT_COUNT-details-label:
 
+.. index::
+   single: register details; SM0_ISR_SHIFT_COUNT
+   single: SM0_ISR_SHIFT_COUNT
+
+.. index::
+   single: register details; SM1_ISR_SHIFT_COUNT
+   single: SM1_ISR_SHIFT_COUNT
+
+.. index::
+   single: register details; SM2_ISR_SHIFT_COUNT
+   single: SM2_ISR_SHIFT_COUNT
+
+.. index::
+   single: register details; SM3_ISR_SHIFT_COUNT
+   single: SM3_ISR_SHIFT_COUNT
+
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_ISR_SHIFT_COUNT, SM1_ISR_SHIFT_COUNT, SM2_ISR_SHIFT_COUNT, SM3_ISR_SHIFT_COUNT Registers
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -241,6 +325,22 @@ register set for each of the two PIOs) is
 .. _SM2_OSR-details-label:
 .. _SM3_OSR-details-label:
 
+.. index::
+   single: register details; SM0_OSR
+   single: SM0_OSR
+
+.. index::
+   single: register details; SM1_OSR
+   single: SM1_OSR
+
+.. index::
+   single: register details; SM2_OSR
+   single: SM2_OSR
+
+.. index::
+   single: register details; SM3_OSR
+   single: SM3_OSR
+
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_OSR, SM1_OSR, SM2_OSR, SM3_OSR Registers
 ----------------------------------------------------------------------------------------------------------------
 
@@ -256,6 +356,22 @@ register set for each of the two PIOs) is
 .. _SM1_OSR_SHIFT_COUNT-details-label:
 .. _SM2_OSR_SHIFT_COUNT-details-label:
 .. _SM3_OSR_SHIFT_COUNT-details-label:
+
+.. index::
+   single: register details; SM0_OSR_SHIFT_COUNT
+   single: SM0_OSR_SHIFT_COUNT
+
+.. index::
+   single: register details; SM1_OSR_SHIFT_COUNT
+   single: SM1_OSR_SHIFT_COUNT
+
+.. index::
+   single: register details; SM2_OSR_SHIFT_COUNT
+   single: SM2_OSR_SHIFT_COUNT
+
+.. index::
+   single: register details; SM3_OSR_SHIFT_COUNT
+   single: SM3_OSR_SHIFT_COUNT
 
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_OSR_SHIFT_COUNT, SM1_OSR_SHIFT_COUNT, SM2_OSR_SHIFT_COUNT, SM3_OSR_SHIFT_COUNT Registers
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -301,6 +417,134 @@ register set for each of the two PIOs) is
 .. _SM3_FIFO_MEM6-details-label:
 .. _SM3_FIFO_MEM7-details-label:
 
+.. index::
+   single: register details; SM0_FIFO_MEM0
+   single: SM0_FIFO_MEM0
+
+.. index::
+   single: register details; SM0_FIFO_MEM1
+   single: SM0_FIFO_MEM1
+
+.. index::
+   single: register details; SM0_FIFO_MEM2
+   single: SM0_FIFO_MEM2
+
+.. index::
+   single: register details; SM0_FIFO_MEM3
+   single: SM0_FIFO_MEM3
+
+.. index::
+   single: register details; SM0_FIFO_MEM4
+   single: SM0_FIFO_MEM4
+
+.. index::
+   single: register details; SM0_FIFO_MEM5
+   single: SM0_FIFO_MEM5
+
+.. index::
+   single: register details; SM0_FIFO_MEM6
+   single: SM0_FIFO_MEM6
+
+.. index::
+   single: register details; SM0_FIFO_MEM7
+   single: SM0_FIFO_MEM7
+
+.. index::
+   single: register details; SM1_FIFO_MEM0
+   single: SM1_FIFO_MEM0
+
+.. index::
+   single: register details; SM1_FIFO_MEM1
+   single: SM1_FIFO_MEM1
+
+.. index::
+   single: register details; SM1_FIFO_MEM2
+   single: SM1_FIFO_MEM2
+
+.. index::
+   single: register details; SM1_FIFO_MEM3
+   single: SM1_FIFO_MEM3
+
+.. index::
+   single: register details; SM1_FIFO_MEM4
+   single: SM1_FIFO_MEM4
+
+.. index::
+   single: register details; SM1_FIFO_MEM5
+   single: SM1_FIFO_MEM5
+
+.. index::
+   single: register details; SM1_FIFO_MEM6
+   single: SM1_FIFO_MEM6
+
+.. index::
+   single: register details; SM1_FIFO_MEM7
+   single: SM1_FIFO_MEM7
+
+.. index::
+   single: register details; SM2_FIFO_MEM0
+   single: SM2_FIFO_MEM0
+
+.. index::
+   single: register details; SM2_FIFO_MEM1
+   single: SM2_FIFO_MEM1
+
+.. index::
+   single: register details; SM2_FIFO_MEM2
+   single: SM2_FIFO_MEM2
+
+.. index::
+   single: register details; SM2_FIFO_MEM3
+   single: SM2_FIFO_MEM3
+
+.. index::
+   single: register details; SM2_FIFO_MEM4
+   single: SM2_FIFO_MEM4
+
+.. index::
+   single: register details; SM2_FIFO_MEM5
+   single: SM2_FIFO_MEM5
+
+.. index::
+   single: register details; SM2_FIFO_MEM6
+   single: SM2_FIFO_MEM6
+
+.. index::
+   single: register details; SM2_FIFO_MEM7
+   single: SM2_FIFO_MEM7
+
+.. index::
+   single: register details; SM3_FIFO_MEM0
+   single: SM3_FIFO_MEM0
+
+.. index::
+   single: register details; SM3_FIFO_MEM1
+   single: SM3_FIFO_MEM1
+
+.. index::
+   single: register details; SM3_FIFO_MEM2
+   single: SM3_FIFO_MEM2
+
+.. index::
+   single: register details; SM3_FIFO_MEM3
+   single: SM3_FIFO_MEM3
+
+.. index::
+   single: register details; SM3_FIFO_MEM4
+   single: SM3_FIFO_MEM4
+
+.. index::
+   single: register details; SM3_FIFO_MEM5
+   single: SM3_FIFO_MEM5
+
+.. index::
+   single: register details; SM3_FIFO_MEM6
+   single: SM3_FIFO_MEM6
+
+.. index::
+   single: register details; SM3_FIFO_MEM7
+   single: SM3_FIFO_MEM7
+
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_FIFO_MEM0, SM0_FIFO_MEM1, SM0_FIFO_MEM2, SM0_FIFO_MEM3, SM0_FIFO_MEM4, SM0_FIFO_MEM5, SM0_FIFO_MEM6, SM0_FIFO_MEM7, SM1_FIFO_MEM0, SM1_FIFO_MEM1, SM1_FIFO_MEM2, SM1_FIFO_MEM3, SM1_FIFO_MEM4, SM1_FIFO_MEM5, SM1_FIFO_MEM6, SM1_FIFO_MEM7, SM2_FIFO_MEM0, SM2_FIFO_MEM1, SM2_FIFO_MEM2, SM2_FIFO_MEM3, SM2_FIFO_MEM4, SM2_FIFO_MEM5, SM2_FIFO_MEM6, SM2_FIFO_MEM7, SM3_FIFO_MEM0, SM3_FIFO_MEM1, SM3_FIFO_MEM2, SM3_FIFO_MEM3, SM3_FIFO_MEM4, SM3_FIFO_MEM5, SM3_FIFO_MEM6, SM3_FIFO_MEM7 Registers
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -316,6 +560,22 @@ register set for each of the two PIOs) is
 .. _SM1_DELAY-details-label:
 .. _SM2_DELAY-details-label:
 .. _SM3_DELAY-details-label:
+
+.. index::
+   single: register details; SM0_DELAY
+   single: SM0_DELAY
+
+.. index::
+   single: register details; SM1_DELAY
+   single: SM1_DELAY
+
+.. index::
+   single: register details; SM2_DELAY
+   single: SM2_DELAY
+
+.. index::
+   single: register details; SM3_DELAY
+   single: SM3_DELAY
 
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_DELAY, SM1_DELAY, SM2_DELAY, SM3_DELAY Registers
 ------------------------------------------------------------------------------------------------------------------------
@@ -333,6 +593,22 @@ register set for each of the two PIOs) is
 .. _SM1_DELAY_CYCLE-details-label:
 .. _SM2_DELAY_CYCLE-details-label:
 .. _SM3_DELAY_CYCLE-details-label:
+
+.. index::
+   single: register details; SM0_DELAY_CYCLE
+   single: SM0_DELAY_CYCLE
+
+.. index::
+   single: register details; SM1_DELAY_CYCLE
+   single: SM1_DELAY_CYCLE
+
+.. index::
+   single: register details; SM2_DELAY_CYCLE
+   single: SM2_DELAY_CYCLE
+
+.. index::
+   single: register details; SM3_DELAY_CYCLE
+   single: SM3_DELAY_CYCLE
 
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_DELAY_CYCLE, SM1_DELAY_CYCLE, SM2_DELAY_CYCLE, SM3_DELAY_CYCLE Registers
 ------------------------------------------------------------------------------------------------------------------------------------------------
@@ -354,6 +630,22 @@ Read-only access to the SM's delay status.
 .. _SM1_PENDING_DELAY-details-label:
 .. _SM2_PENDING_DELAY-details-label:
 .. _SM3_PENDING_DELAY-details-label:
+
+.. index::
+   single: register details; SM0_PENDING_DELAY
+   single: SM0_PENDING_DELAY
+
+.. index::
+   single: register details; SM1_PENDING_DELAY
+   single: SM1_PENDING_DELAY
+
+.. index::
+   single: register details; SM2_PENDING_DELAY
+   single: SM2_PENDING_DELAY
+
+.. index::
+   single: register details; SM3_PENDING_DELAY
+   single: SM3_PENDING_DELAY
 
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_PENDING_DELAY, SM1_PENDING_DELAY, SM2_PENDING_DELAY, SM3_PENDING_DELAY Registers
 --------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -377,6 +669,22 @@ number of pending delay cycles.
 .. _SM2_CLK_ENABLE-details-label:
 .. _SM3_CLK_ENABLE-details-label:
 
+.. index::
+   single: register details; SM0_CLK_ENABLE
+   single: SM0_CLK_ENABLE
+
+.. index::
+   single: register details; SM1_CLK_ENABLE
+   single: SM1_CLK_ENABLE
+
+.. index::
+   single: register details; SM2_CLK_ENABLE
+   single: SM2_CLK_ENABLE
+
+.. index::
+   single: register details; SM3_CLK_ENABLE
+   single: SM3_CLK_ENABLE
+
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_CLK_ENABLE, SM1_CLK_ENABLE, SM2_CLK_ENABLE, SM3_CLK_ENABLE Registers
 --------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -397,6 +705,22 @@ Read-only access to the SM's delay status.
 .. _SM1_BREAKPOINTS-details-label:
 .. _SM2_BREAKPOINTS-details-label:
 .. _SM3_BREAKPOINTS-details-label:
+
+.. index::
+   single: register details; SM0_BREAKPOINTS
+   single: SM0_BREAKPOINTS
+
+.. index::
+   single: register details; SM1_BREAKPOINTS
+   single: SM1_BREAKPOINTS
+
+.. index::
+   single: register details; SM2_BREAKPOINTS
+   single: SM2_BREAKPOINTS
+
+.. index::
+   single: register details; SM3_BREAKPOINTS
+   single: SM3_BREAKPOINTS
 
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_BREAKPOINTS, SM1_BREAKPOINTS, SM2_BREAKPOINTS, SM3_BREAKPOINTS Registers
 ------------------------------------------------------------------------------------------------------------------------------------------------
@@ -459,6 +783,22 @@ to single step mode.
 .. _SM1_TRACEPOINTS-details-label:
 .. _SM2_TRACEPOINTS-details-label:
 .. _SM3_TRACEPOINTS-details-label:
+
+.. index::
+   single: register details; SM0_TRACEPOINTS
+   single: SM0_TRACEPOINTS
+
+.. index::
+   single: register details; SM1_TRACEPOINTS
+   single: SM1_TRACEPOINTS
+
+.. index::
+   single: register details; SM2_TRACEPOINTS
+   single: SM2_TRACEPOINTS
+
+.. index::
+   single: register details; SM3_TRACEPOINTS
+   single: SM3_TRACEPOINTS
 
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: SM0_TRACEPOINTS, SM1_TRACEPOINTS, SM2_TRACEPOINTS, SM3_TRACEPOINTS Registers
 ------------------------------------------------------------------------------------------------------------------------------------------------
@@ -547,6 +887,134 @@ MASTERCLK_MODE modes.
 .. _INSTR_MEM30-details-label:
 .. _INSTR_MEM31-details-label:
 
+.. index::
+   single: register details; INSTR_MEM0
+   single: INSTR_MEM0
+
+.. index::
+   single: register details; INSTR_MEM1
+   single: INSTR_MEM1
+
+.. index::
+   single: register details; INSTR_MEM2
+   single: INSTR_MEM2
+
+.. index::
+   single: register details; INSTR_MEM3
+   single: INSTR_MEM3
+
+.. index::
+   single: register details; INSTR_MEM4
+   single: INSTR_MEM4
+
+.. index::
+   single: register details; INSTR_MEM5
+   single: INSTR_MEM5
+
+.. index::
+   single: register details; INSTR_MEM6
+   single: INSTR_MEM6
+
+.. index::
+   single: register details; INSTR_MEM7
+   single: INSTR_MEM7
+
+.. index::
+   single: register details; INSTR_MEM8
+   single: INSTR_MEM8
+
+.. index::
+   single: register details; INSTR_MEM9
+   single: INSTR_MEM9
+
+.. index::
+   single: register details; INSTR_MEM10
+   single: INSTR_MEM10
+
+.. index::
+   single: register details; INSTR_MEM11
+   single: INSTR_MEM11
+
+.. index::
+   single: register details; INSTR_MEM12
+   single: INSTR_MEM12
+
+.. index::
+   single: register details; INSTR_MEM13
+   single: INSTR_MEM13
+
+.. index::
+   single: register details; INSTR_MEM14
+   single: INSTR_MEM14
+
+.. index::
+   single: register details; INSTR_MEM15
+   single: INSTR_MEM15
+
+.. index::
+   single: register details; INSTR_MEM16
+   single: INSTR_MEM16
+
+.. index::
+   single: register details; INSTR_MEM17
+   single: INSTR_MEM17
+
+.. index::
+   single: register details; INSTR_MEM18
+   single: INSTR_MEM18
+
+.. index::
+   single: register details; INSTR_MEM19
+   single: INSTR_MEM19
+
+.. index::
+   single: register details; INSTR_MEM20
+   single: INSTR_MEM20
+
+.. index::
+   single: register details; INSTR_MEM21
+   single: INSTR_MEM21
+
+.. index::
+   single: register details; INSTR_MEM22
+   single: INSTR_MEM22
+
+.. index::
+   single: register details; INSTR_MEM23
+   single: INSTR_MEM23
+
+.. index::
+   single: register details; INSTR_MEM24
+   single: INSTR_MEM24
+
+.. index::
+   single: register details; INSTR_MEM25
+   single: INSTR_MEM25
+
+.. index::
+   single: register details; INSTR_MEM26
+   single: INSTR_MEM26
+
+.. index::
+   single: register details; INSTR_MEM27
+   single: INSTR_MEM27
+
+.. index::
+   single: register details; INSTR_MEM28
+   single: INSTR_MEM28
+
+.. index::
+   single: register details; INSTR_MEM29
+   single: INSTR_MEM29
+
+.. index::
+   single: register details; INSTR_MEM30
+   single: INSTR_MEM30
+
+.. index::
+   single: register details; INSTR_MEM31
+   single: INSTR_MEM31
+
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: INSTR_MEM0, INSTR_MEM1, INSTR_MEM2, INSTR_MEM3, INSTR_MEM4, INSTR_MEM5, INSTR_MEM6, INSTR_MEM7, INSTR_MEM8, INSTR_MEM9, INSTR_MEM10, INSTR_MEM11, INSTR_MEM12, INSTR_MEM13, INSTR_MEM14, INSTR_MEM15, INSTR_MEM16, INSTR_MEM17, INSTR_MEM18, INSTR_MEM19, INSTR_MEM20, INSTR_MEM21, INSTR_MEM22, INSTR_MEM23, INSTR_MEM24, INSTR_MEM25, INSTR_MEM26, INSTR_MEM27, INSTR_MEM28, INSTR_MEM29, INSTR_MEM30, INSTR_MEM31 Registers
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -562,6 +1030,22 @@ MASTERCLK_MODE modes.
 .. _TXF1-details-label:
 .. _TXF2-details-label:
 .. _TXF3-details-label:
+
+.. index::
+   single: register details; TXF0
+   single: TXF0
+
+.. index::
+   single: register details; TXF1
+   single: TXF1
+
+.. index::
+   single: register details; TXF2
+   single: TXF2
+
+.. index::
+   single: register details; TXF3
+   single: TXF3
 
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: TXF0, TXF1, TXF2, TXF3 Registers
 ----------------------------------------------------------------------------------------------------
@@ -579,6 +1063,22 @@ MASTERCLK_MODE modes.
 .. _RXF2-details-label:
 .. _RXF3-details-label:
 
+.. index::
+   single: register details; RXF0
+   single: RXF0
+
+.. index::
+   single: register details; RXF1
+   single: RXF1
+
+.. index::
+   single: register details; RXF2
+   single: RXF2
+
+.. index::
+   single: register details; RXF3
+   single: RXF3
+
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: RXF0, RXF1, RXF2, RXF3 Registers
 ----------------------------------------------------------------------------------------------------
 
@@ -591,6 +1091,10 @@ MASTERCLK_MODE modes.
    31:0, ―, "Direct write access to the RX FIFO for the corresponding state machine.  Each write pushes one word to the FIFO.  Attempting to write to a full FIFO has no effect on the FIFO state or contents, and sets the sticky FDEBUG_RXOVER error flag for this FIFO.", WF, 0
 
 .. _FREAD_PTR-details-label:
+
+.. index::
+   single: register details; FREAD_PTR
+   single: FREAD_PTR
 
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: FREAD_PTR Register
 --------------------------------------------------------------------------------------
@@ -615,6 +1119,10 @@ Read pointers of all of the SM's TX and RX FIFOs.
    3:0, RXF3_READ_PTR, "Offset (0…7) within FIFO memory for the next FIFO read operation", RO, 0
 
 .. _GPIO_PINS-details-label:
+
+.. index::
+   single: register details; GPIO_PINS
+   single: GPIO_PINS
 
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: GPIO_PINS Register
 --------------------------------------------------------------------------------------
@@ -663,6 +1171,10 @@ Direct read / write access to all of the 32 GPIO pins.
    0, GPIO_PIN0, "0x1 for HIGH or 0x0 for LOW", RW, 0
 
 .. _GPIO_PINDIRS-details-label:
+
+.. index::
+   single: register details; GPIO_PINDIRS
+   single: GPIO_PINDIRS
 
 :ref:`Emulator PIO Registers <section-top_emulator_pio_registers>`: GPIO_PINDIRS Register
 -----------------------------------------------------------------------------------------

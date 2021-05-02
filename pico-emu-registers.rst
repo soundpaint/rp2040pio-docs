@@ -3,9 +3,13 @@
 .. # DO NOT CHANGE THIS FILE, since changes will be lost upon
 .. # its next update.  Instead, change the info in the source code.
 .. # This file was automatically created on:
-.. # 2021-04-24T01:43:55.974770Z
+.. # 2021-05-02T08:19:17.757207Z
 
 .. _section-top_emulator_global_registers:
+
+.. index::
+   single: Emulator Global Registers
+   single: registers set; Emulator Global Registers
 
 Emulator Global Registers
 =========================
@@ -37,6 +41,10 @@ Base address for the emulator global register set is
 
 .. _PWR_UP-details-label:
 
+.. index::
+   single: register details; PWR_UP
+   single: PWR_UP
+
 :ref:`Emulator Global Registers <section-top_emulator_global_registers>`: PWR_UP Register
 -----------------------------------------------------------------------------------------
 
@@ -50,6 +58,10 @@ Base address for the emulator global register set is
 
 .. _MASTERCLK_FREQ-details-label:
 
+.. index::
+   single: register details; MASTERCLK_FREQ
+   single: MASTERCLK_FREQ
+
 :ref:`Emulator Global Registers <section-top_emulator_global_registers>`: MASTERCLK_FREQ Register
 -------------------------------------------------------------------------------------------------
 
@@ -62,6 +74,10 @@ Base address for the emulator global register set is
    31:0, ―, "Unsigned integer value that represents the target frequency of the emulation in 1/8Hz. That is, a value of 1 represents a frequency of 0.125 Hz, and the maximum value of 2^32 - 1 = 4294967295 represents a frequency of 536.870911875MHz.  A value of 0 indicates that the emulation should execute as fast as possible.  Note that there is no guarantee at all to run at the specified frequency.  Instead, the value is just the frequency that the emulation tries to catch up with as close as possible.  The reset value corresponds to a target frequency of 125MHz.", RW, 1000000000
 
 .. _MASTERCLK_MODE-details-label:
+
+.. index::
+   single: register details; MASTERCLK_MODE
+   single: MASTERCLK_MODE
 
 :ref:`Emulator Global Registers <section-top_emulator_global_registers>`: MASTERCLK_MODE Register
 -------------------------------------------------------------------------------------------------
@@ -81,6 +97,10 @@ Selects the clock mode.
 
 .. _MASTERCLK_TRIGGER_PHASE0-details-label:
 
+.. index::
+   single: register details; MASTERCLK_TRIGGER_PHASE0
+   single: MASTERCLK_TRIGGER_PHASE0
+
 :ref:`Emulator Global Registers <section-top_emulator_global_registers>`: MASTERCLK_TRIGGER_PHASE0 Register
 -----------------------------------------------------------------------------------------------------------
 
@@ -93,6 +113,10 @@ Selects the clock mode.
    31:0, ―, "When master clock is in single step mode, writing any value to this address will trigger the emulator to execute phase 0 of the next clock cycle.  In phase 0, the emulator fetches and decodes the next instruction.  When already in phase 0, writing once more to this address will have no effect.  When master clock is in target frequency mode, writing to this address will have no effect.  Upon reset, the system is in phase 1. Reading from this register will return value 0x1 if and only if the emulator is in phase 0 *and* phase 0 is settled (i.e. the emulator has completed all operations to be performed during this phase), and 0x0 otherwise.", WF, ―
 
 .. _MASTERCLK_TRIGGER_PHASE1-details-label:
+
+.. index::
+   single: register details; MASTERCLK_TRIGGER_PHASE1
+   single: MASTERCLK_TRIGGER_PHASE1
 
 :ref:`Emulator Global Registers <section-top_emulator_global_registers>`: MASTERCLK_TRIGGER_PHASE1 Register
 -----------------------------------------------------------------------------------------------------------
@@ -107,6 +131,10 @@ Selects the clock mode.
 
 .. _WALLCLOCK_LSB-details-label:
 
+.. index::
+   single: register details; WALLCLOCK_LSB
+   single: WALLCLOCK_LSB
+
 :ref:`Emulator Global Registers <section-top_emulator_global_registers>`: WALLCLOCK_LSB Register
 ------------------------------------------------------------------------------------------------
 
@@ -119,6 +147,10 @@ Selects the clock mode.
    31:0, ―, "LSB value (lower 32 bits) of wall clock.  The wall clock is a 64 bit counter that is initialized to 0 and incremented whenever the master clock has completed a cycle.", RO, ―
 
 .. _WALLCLOCK_MSB-details-label:
+
+.. index::
+   single: register details; WALLCLOCK_MSB
+   single: WALLCLOCK_MSB
 
 :ref:`Emulator Global Registers <section-top_emulator_global_registers>`: WALLCLOCK_MSB Register
 ------------------------------------------------------------------------------------------------
