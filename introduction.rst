@@ -60,7 +60,8 @@ Solution
 --------
 
 This is exactly, what the RP2040 PIO emulator does: It aims to mimick
-the behaviour of all of the two PIOs' state machines as precise as
+the behaviour of all of the two PIOs' state machines (8 units
+altogether plus 8 FIFOs and some more glue logic) as precise as
 necessary to reproduce their logical functionality, such that PIO
 programs can be debugged in the emulator, thus making it feasible to
 develop programs for the PIO.

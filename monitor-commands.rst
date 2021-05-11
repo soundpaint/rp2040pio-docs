@@ -3,7 +3,7 @@
 .. # DO NOT CHANGE THIS FILE, since changes will be lost upon
 .. # its next update.  Instead, change the info in the source code.
 .. # This file was automatically created on:
-.. # 2021-05-02T08:19:17.536278Z
+.. # 2021-05-11T02:22:52.936358Z
 
 Monitor & Control Program Commands Reference
 ============================================
@@ -33,7 +33,7 @@ listed below.
    ":ref:`clear <clear-command-label>`","clear screen and optionally scrollback buffer"
    ":ref:`enable <enable-command-label>`","enable or disable state machine(s) or show if enabled"
    ":ref:`enter <enter-command-label>`","enter instruction opcodes; exit by entering an empty line"
-   ":ref:`execute <execute-command-label>`","write instruction for immediate execution or display instruction currently executed"
+   ":ref:`execute <execute-command-label>`","set instruction for immediate execution or display instructions currently executed or pending for execution"
    ":ref:`fifo <fifo-command-label>`","display or change internal state machine's FIFO status"
    ":ref:`gpio <gpio-command-label>`","display or change status of GPIO pins"
    ":ref:`help <help-command-label>`","list all available monitor commands"
@@ -206,7 +206,7 @@ execute [OPTION]…
 **Description**
 ^^^^^^^^^^^^^^^
 
-write instruction for immediate execution or display instruction currently executed
+set instruction for immediate execution or display instructions currently executed or pending for execution
 
 **Options**
 ^^^^^^^^^^^
@@ -215,8 +215,14 @@ write instruction for immediate execution or display instruction currently execu
             PIO number, either 0 or 1
   -s, --sm=NUMBER (default: 0)
             SM number, one of 0, 1, 2 or 3
-  -i, --instruction=CODE (mandatory: no)
-            opcode of instruction to be executed
+  -f, --force=CODE (mandatory: no)
+            set or overwrite opcode of forced instruction to be executed
+  -e, --exec=CODE (mandatory: no)
+            set or overwrite opcode of EXEC'd instruction to be executed
+  -c, --cancel (default: off)
+            cancel pending forced instruction, if any
+  -d, --delete (default: off)
+            delete pending EXEC'd instruction, if any
   -h, --help (default: off)
             display this help text and exit
 
@@ -231,11 +237,20 @@ clock cycle.
 Options -p and -s select the state machine that this command
 applies to.  Default is PIO0 and SM0.
 
-If option -i is not specified, the instruction currently being
-executed by the selected state machine will be displayed.
+If neither of options -c, -d, -e, -f is specified, the instruction
+currently being executed by the selected state machine and any
+pending forced or EXEC'd instruction will be displayed.
 
-If option -i is specified, the specified instruction is written
-for immediate execution.
+If option -f is specified, the specified instruction is written
+for immediate execution (forced instruction).
+If option -c is specified, any pending forced instruction
+will be cancelled.
+If option -e is specified, the specified instruction is written
+for execution on the next enabled clock cycle (EXEC'd instruction),
+provided that there is no pending forced instruction that would have
+higher priority of execution.
+If option -d is specified, any pending EXEC'd instruction
+will be deleted.
 
 :ref:`Back to Overview <commands-overview>`
 
