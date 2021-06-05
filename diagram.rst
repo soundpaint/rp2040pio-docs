@@ -34,13 +34,15 @@ not specified on the command line.
 Recording
 ---------
 
+.. |cycle_button_ref| image:: images/cycle16x16.png
+
 Clock cycles to be recorded for the diagram view are triggered by
-selecting a number of cycles and then pressing the ``Emulate``button.
-Note that the Diagram Creator intentionally only records data when
-clock cycles are triggered explicitly from within the Diagram Creator.
-It does *not* record clock cycles that are triggered elsewhere,
-e.g. by the ``trace`` command from within a Monitor instance.  The
-rationale behind this design is as follows:
+selecting a number of cycles and then pressing the ``Cycle`` button
+|cycle_button_ref|.  Note that the Diagram Creator intentionally
+only records data when clock cycles are triggered explicitly from
+within the Diagram Creator.  It does *not* record clock cycles that
+are triggered elsewhere, e.g. by the ``trace`` command from within a
+Monitor instance.  The rationale behind this design is as follows:
 
 * The Diagram Creator requires time to process signal data while
   recording, and thus might miss clock cycles, if it would try to keep
@@ -64,9 +66,11 @@ provided that there is no gap detected.  If a gap is detected
 between the two emulation runs), the diagram view will be
 automatically cleared before continuing with the next cycles.
 
-To manually clear the diagram view, press the ``Clear View`` button.
-Clearing the diagram view will also drop all data that has been
-recorded so far.
+.. |trash_button_ref| image:: images/trash16x16.png
+
+To manually clear the diagram view, press the ``Clear`` button
+|trash_button_ref|.  Clearing the diagram view will also drop all data
+that has been recorded so far.
 
 Rendering
 ---------

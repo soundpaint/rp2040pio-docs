@@ -53,8 +53,15 @@ following items:
 
 * Generate a warning upon FIFO overflow / underflow.
 
+* Generate a warning when trying to enqueue data to / dequeue data
+  from TX, while RX is joined, and vice versa.
+
 * Generate a warning when reading from or writing to a GPIO pin that
   has pin direction that conflicts with the type of access.
+
+* Generate a warning if the condition for an undefined “MOV” from the
+  OSR occurs whilst autopull is enabled, as specified in
+  Sect. 3.5.4.2. “Autopull Details”.
 
 * Maybe add tooltips in timing diagrams with descriptive /
   explanatory text for all of those warnings.

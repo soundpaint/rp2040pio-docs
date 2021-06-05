@@ -20,8 +20,8 @@ with optional paramater ``-p`` to specify the server port to connect
 to.  Again, like as for the server, the default port is ``2040``, if
 not specified on the command line.
 
-Basic Operation
----------------
+TX and RX
+---------
 
 For a selected state machine of a selected PIO, the FIFO observer
 application displays the FIFO's full memory contents as an array of 8
@@ -120,3 +120,46 @@ Similar to pushing and pulling, for join control, one can
 * execute a monitor script that performs joining or unjoining at specified points of time,
 * or, if available, use any other client application that allows for
   joining or unjoining.
+
+FDEBUG Bits
+-----------
+
+Each state machine features a number of bits that record exceptional
+states (FIFO overrun or underrun).  The current state of these bits is
+displayed as read-only checkboxes beneath the FIFO panel.
+
+OSR and ISR
+-----------
+
+While the FIFO is useful to temporarily store and shift around 32 bit
+data *words*, just matching the RP2040's 32 bit processor operations
+of the ARM cores, GPIO pins work on a *single bit* level.  To fill
+this gap, there is the *Output Shift Register* (*OSR*) and the *Input
+Shift Register* (*ISR*).  These registers exchange complete 32 bit
+words with the FIFO, but their ability for bit-shifting enables a
+state machine to access any number of consecutive bits.  When the
+state machine performs a ``PULL`` operation, you may see a 32 bit word
+being copied from the TX FIFO to the OSR (provided that the FIFO is
+not empty).  Similar, a ``PUSH`` operation will copy the contents of
+the ISR into the RX FIFO.  Operations ``OUT`` and ``IN`` will shift a
+number of bits out of the OSR and into the ISR, respectively.
+
+The fill *level* of OSR and ISR, that is, the number of bits being
+tracked as significant, is indicated by coloring all significant bits.
+Similar to the TX and RX FIFO entries, significant bits are displayed
+in red color (for the OSR) or green color (for the ISR), since the OSR
+is associated with TX, and the ISR with RX, respectively.  All
+non-significant bits beyond the threshold are displayed in gray color,
+just like the unused entries in the FIFO.
+
+The configuration of the ``autopull`` feature (for the OSR) as well as
+of the ``autopush`` feature (for the ISR) is indicated by the state of
+the corresponding checkbox aligned with the OSR or ISR.
+
+For both, the OSR and ISR, there are arrows at the left and at the
+right of the bit pattern.  The arrows indicate the shift direction of
+the shift register.  The vertical line that appears somewhere in the
+bit pattern (or in front or behind) indicates the *threshold* for
+``autopull`` or ``autopush`` operation: ``autopull`` will occur when
+underrunning the pull threshold; similarly, ``autopush`` will occur
+when overrunning the push threshold.

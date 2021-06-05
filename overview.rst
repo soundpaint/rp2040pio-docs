@@ -28,9 +28,10 @@ In a typical development / debugging session, one will begin with
 Start Monitor Session
 ---------------------
 
-Next, a :ref:`monitor instance<section-top_monitor>` can be used to
-load, modify, trace and save PIO programs and inspect the current
-state of all state machines or any other parts of the emulator. ::
+Next, an instance of the :ref:`Monitor<section-top_monitor>` client
+application can be used to load, modify, trace and save PIO programs
+and inspect the current state of all state machines or any other parts
+of the emulator. ::
 
   java -jar rp2040pio_monitor.jar
 
@@ -111,8 +112,8 @@ for directly modifying a FIFO's contents and state of joining.
    The FIFO Observer visualizes a selected state machine's contents of
    its FIFOs.
 
-Draw Timing Diagrams
---------------------
+Create Timing Diagrams
+----------------------
 
 PIO programs are, after all, about processing digital, mostly binary,
 signals.  Consequently, timing diagrams of resulting intermediate or
@@ -120,29 +121,30 @@ output signals are essential for developing, debugging, understanding
 and working with PIO programs.  Therefore, timing diagrams are a
 highly valuable tool not only for developing and debugging, but also
 for documenting functionality and effect of PIO programs.  Like all
-other client applications, :ref:`TimingDiagram<section-top_diagram>`
+other client applications, :ref:`Diagram Creator<section-top_diagram>`
 is ready to run as Jar file. ::
 
   java -jar rp2040pio_diagram.jar
 
 
-The TimingDiagram client application connects to the RP2040 emulator,
-and observes and records selected state variables of the emulator's
-status while the emulator executes a PIO program.  All collected data
-is visualized as a graphical diagram of signal values over time.
+The Diagram Creator client application connects to the RP2040
+emulator, and observes and records selected state variables of the
+emulator's status while the emulator executes a PIO program.  All
+collected data is visualized as a graphical diagram of signal values
+over time.
 
 .. figure:: images/diagram.png
    :scale: 80%
-   :alt: TimingDiagram Application
+   :alt: Diagram Creator Application
 
-   TimingDiagram Application
+   Diagram Creator Application
 
    Signals to be visualized can be activated or deactivated, and their
    order from top to bottom can be freely changed.
 
 Note that currently the set of available signals is still limited to a
 small number of the most intersting emulator state variables.  A
-near-future version of the timing diagram application will overcome
+near-future version of the Diagram Creator application will overcome
 this restriction and support a lot more of signals -- virtually all of
 the emulator's internal state variables.
 
