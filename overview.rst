@@ -10,11 +10,19 @@ Start Emulation Server
 In a typical development / debugging session, one will begin with
 :ref:`starting a server instance.<section-top_emulation-server>` ::
 
-   $ java -jar ../rp2040pio/jar/rp2040pio_server.jar
+   $ java -jar jar/rp2040pio_server.jar
    Emulation Server Daemon
-   RP2040 PIO Emulator Version 0.1 / Linux 4.15.0-139-generic
-   © 2021 by J. Reuter
-   Karlsruhe, Germany
+   RP2040 PIO Emulator Version 0.1 / jvm 11.0.11 / 55.0
+   Copyright © 2021 by Jürgen Reuter, Karlsruhe, Germany.
+
+   This software comes with ABSOLUTELY NO WARRANTY;
+   for details please look at the license file that you
+   should have received together with this software.
+   This is free software, and you are welcome to
+   redistribute it under certain conditions;
+   for details please look at the license file that you
+   should have received together with this software.
+
    started emulation server at port 2040
 
 Start Monitor Session

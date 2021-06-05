@@ -61,7 +61,7 @@ initializing GPIO pin 23 for use with PIO 0. ::
 
   # Connect GPIO pin 23 with PIO 0
 
-  gpio --pio=0 --gpio=23 -i
+  gpio --pio=0 --gpio=23 --init
 
 Next, we initialize our GPIO pin, here for example with the pin's
 value being set to a logical 1 state. ::
@@ -106,11 +106,11 @@ In a monitor session, we will run the monitor command ``trace`` that
 executes instructions one by one, with this script for external signal
 generation intercepting the emulator and also updating data.  In
 general, this competing access will cause a race condition: The
-monitor command ``trace``, when run with option ``-g``, will display
-the GPIO pins' state at roughly the same time when this external
-signal generation script will also update the GPIO pins.  In effect,
-it is a coincidence whether the GPIO display will show the state
-*before* or *after* the update performed by the external signal
+monitor command ``trace``, when run with option ``--show-gpio``, will
+display the GPIO pins' state at roughly the same time when this
+external signal generation script will also update the GPIO pins.  In
+effect, it is a coincidence whether the GPIO display will show the
+state *before* or *after* the update performed by the external signal
 generation script.  To avoid this situation, we defer signal
 generation by another *half* cycle.  That is, we update the signal
 immediately after cycle phase 0 has reached a stable state.  For this
@@ -300,7 +300,7 @@ to start with value 0 upon execution of the next instruction.
 
 Next, enter ``trace`` to execute the first instruction of the program.
 This step will setup pin directions, and check the result with the
-command ``gpio -p 0`` to see the pins at PIO0.
+command ``gpio --pio=0`` to see the pins at PIO0.
 
 .. figure:: images/io-monitor-setup-pindirs.png
    :scale: 80%
@@ -312,10 +312,10 @@ command ``gpio -p 0`` to see the pins at PIO0.
 
 In another terminal window, we open a second instance of a monitor and
 execute our ``ext-wave`` monitor script with the monitor command
-``script -d -e ext-wave``.  The script will provide the external
-signal on GPIO 23.  After startup, the script stops at the first
-``wait`` command in expectation for the PIO program to arrive at clock
-cycle 3.
+``script --dry-run=false --example=ext-wave``.  The script will
+provide the external signal on GPIO 23.  After startup, the script
+stops at the first ``wait`` command in expectation for the PIO program
+to arrive at clock cycle 3.
 
 .. figure:: images/io-monitor-external.png
    :scale: 80%
@@ -326,12 +326,13 @@ cycle 3.
    Starting the ``ext-wave`` monitor script will start the process of
    supplying an external signal.
 
-Now, in our first monitor instance, we enter the command ``trace -g -p
-0 -w 1000 -c 30`` to let the emulator perform 30 clock cycles in order
-to continue execution of our PIO program for a while.  Option ``-w
-1000`` will insert a delay of 1 second between clock cycles, such we
-can easier follow what happens.  Options ``-g`` and ``-p 0`` will show
-us the GPIO pins for each cycle as seen by PIO0.
+Now, in our first monitor instance, we enter the command
+``trace --show-gpio --pio=0 --wait=1000 --cycles=30`` to let the
+emulator perform 30 clock cycles in order to continue execution of our
+PIO program for a while.  Option ``--wait=1000`` will insert a delay
+of 1 second between clock cycles, such we can easier follow what
+happens.  Options ``--show-gpio`` and ``--pio=0`` will show us the
+GPIO pins for each cycle as seen by PIO0.
 
 .. figure:: images/io-monitor-sync.gif
    :scale: 80%
@@ -353,8 +354,8 @@ simplicity, no interaction between the external signal and the PIO
 program.  But in a real-world use case, the PIO program could read in
 the bit that is provided by the external signal.
 
-Conclusion
-----------
+Summary
+-------
 
 We have seen how to provide an external signal to the GPIO pins and
 keep it in sync with a PIO program, even if the PIO program is

@@ -39,4 +39,62 @@ Currently, the following tools are available.
     |                                  |              | verification.                      |                                      |
     +----------------------------------+--------------+------------------------------------+--------------------------------------+
 
-More client applications are planned for future implementation.
+More client applications for monitoring even more of a state machine's
+internal state such as its scratch registers X and Y are planned for
+future implementation.
+
+Connection Status
+-----------------
+
+All graphical clients show a status line at the bottom that indicates
+the connection status.  Under normal working conditions, it will show
+a message like: ::
+
+  Connected to emulation server at port 2040.
+
+.. figure:: images/client-connected.png
+   :scale: 80%
+   :alt: Successfully Connected Client
+
+   Successfully Connected Client
+
+   The message in the status line indicates that the client has
+   succesfully connected to the server at the stated port.
+
+If, for whatever reason, the connection to the emulation server gets
+lost, an appropriate warning will be printed in the status line.
+
+.. figure:: images/client-disconnected.png
+   :scale: 80%
+   :alt: Client with Lost Connection
+
+   Client with Lost Connection
+
+   The message in the status line indicates that the client has lost
+   the connection to the emulation server.  As soon as it successfully
+   reconnects, the message will disappear.
+
+If the connection got lost, the client will in regular intervals
+automatically try to reconnect again, using the previously used
+connection data.
+
+Command-Line Options
+--------------------
+
+All clients accept at least the following options when executed from
+the command-line: ::
+
+   Options:
+
+     -V, --version (default: off)
+               display version information and exit
+     -h, --help (default: off)
+               display this help text and exit
+     -p, --port=PORT (default: 2040)
+               use PORT as server port number
+     -r, --refresh=TIME (default: 1000)
+               autorefresh after <TIME> millis or no autorefresh, if 0
+
+Specific clients may support further options.  For displaying all
+available command-line options of a specific clients, call the client
+with the ``-h`` option.

@@ -1,20 +1,12 @@
 Future Work
 ===========
 
-Some essential features currently do not yet work correctly and need
-to be fixed, including the following issues:
-
-* GPIO mapping: Output priority is not yet implemented.  Currently, in
-  the case of a conflicting write of multiple state machines onto the
-  same GPIO pin, the state machines will just write to the PIO's GPIO
-  pads, and by chance, one state machine will win without considering
-  any priority.  This bug only applies if there are conflicts, but has
-  no impact otherwise.
+Some features currently may not yet work as expected and may need to
+be fixed, including the following issues:
 
 * FIFO mapping: The *exact* layout of FIFO memory in the registers'
-  facade is poorly documented and therefore probably badly
-  implemented.  This (presumed) bug will be fixed hopefully soon,
-  together with implementing a small new FIFO Observer example client.
+  facade is poorly documented and therefore possibly incorrectly
+  implemented.  This issue needs further investigation.
 
 * Instruction insertion: The exact order of delays, PC value update,
   interaction with stalls, etc. is quite tricky.  There may be or may
@@ -26,7 +18,7 @@ There are still a lot of highly desirable features that have not yet
 been implemented.  This list includes, but is not limited to the
 following items:
 
-* The set of monitor commands needs still more features.  It should
+* Check if the set of monitor commands needs more features.  It should
   roughly support functionality comparable to the features of the Pico
   C SDK, such that PIO programs can properly configured and
   controlled.  Though, keep in mind, that these features are just
@@ -45,13 +37,12 @@ following items:
   runs, e.g. by modifying GPIO pins at the correct time, or by feeding
   data into the FIFOs in regular intervals.
 
-  Actually, at least in theory, this task can already be done by
-  writing a monitor script that traces through a PIO prigram cycle by
-  cycle, an inserting instructions (by directly writing the PIO's
-  SMx_INSTR register) for manipulating GPIO pins or FIFO contents.  In
-  practice, however, writing such a script would be tedious work, and
-  this task should really be automated by providing support for
-  injecting proper monitor commands into a script.
+  Basically, this task can already be done by writing a monitor script
+  that executes any data input / output, as outlined in
+  Sect. :ref:`section-top_io`.  In practice, however, writing such a
+  script is tedious work, and this task should really be automated by
+  providing support for injecting proper monitor commands into a
+  script.
 
 * Generate a warning whenever a race condition is detected.  In
   particular, generate a warning when multiple state machines

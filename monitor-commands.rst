@@ -3,7 +3,7 @@
 .. # DO NOT CHANGE THIS FILE, since changes will be lost upon
 .. # its next update.  Instead, change the info in the source code.
 .. # This file was automatically created on:
-.. # 2021-05-11T02:22:52.936358Z
+.. # 2021-06-05T01:25:15.788853Z
 
 Monitor & Control Program Commands Reference
 ============================================
@@ -31,7 +31,7 @@ listed below.
 
    ":ref:`breakpoints <breakpoints-command-label>`","change breakpoints"
    ":ref:`clear <clear-command-label>`","clear screen and optionally scrollback buffer"
-   ":ref:`enable <enable-command-label>`","enable or disable state machine(s) or show if enabled"
+   ":ref:`clock <clock-command-label>`","display or change internal state machine's clock configuration"
    ":ref:`enter <enter-command-label>`","enter instruction opcodes; exit by entering an empty line"
    ":ref:`execute <execute-command-label>`","set instruction for immediate execution or display instructions currently executed or pending for execution"
    ":ref:`fifo <fifo-command-label>`","display or change internal state machine's FIFO status"
@@ -39,13 +39,15 @@ listed below.
    ":ref:`help <help-command-label>`","list all available monitor commands"
    ":ref:`label <label-command-label>`","display a register's label"
    ":ref:`load <load-command-label>`","load program from file and mark affected PIO memory area as allocated"
+   ":ref:`pinctrl <pinctrl-command-label>`","display or change state machine's pin control"
    ":ref:`quit <quit-command-label>`","quit monitor"
    ":ref:`read <read-command-label>`","low-level read access to a register"
    ":ref:`registers <registers-command-label>`","display or change internal registers of a state machine"
    ":ref:`reset <reset-command-label>`","emulator full reset"
    ":ref:`save <save-command-label>`","save a selected range of a PIO's instruction memory to a file"
    ":ref:`script <script-command-label>`","load monitor script from file and execute it"
-   ":ref:`sideset <sideset-command-label>`","display or control a state machine's side-set configuration"
+   ":ref:`side-set <side-set-command-label>`","display or control a state machine's side-set configuration"
+   ":ref:`sm <sm-command-label>`","enable or disable or restart state machine(s) or show if enabled"
    ":ref:`trace <trace-command-label>`","trace program by performing a number of clock cycles"
    ":ref:`unassemble <unassemble-command-label>`","unassemble program memory"
    ":ref:`unload <unload-command-label>`","zero PIO memory area for the specified program and unmark it as allocated"
@@ -124,35 +126,51 @@ clear screen and optionally scrollback buffer
 :ref:`Back to Overview <commands-overview>`
 
 .. index::
-   single: monitor command; enable
-   single: enable
+   single: monitor command; clock
+   single: clock
 
-.. _enable-command-label:
+.. _clock-command-label:
 
-enable
-------
+clock
+-----
 
 **Usage**
 ^^^^^^^^^
 
-enable [OPTION]…
+clock [OPTION]…
 
 **Description**
 ^^^^^^^^^^^^^^^
 
-enable or disable state machine(s) or show if enabled
+display or change internal state machine's clock configuration
 
 **Options**
 ^^^^^^^^^^^
 
-  -p, --pio=NUMBER (mandatory: no)
-            PIO number, either 0 or 1 or both, if undefined
-  -s, --sm=NUMBER (mandatory: no)
-            SM number, one of 0, 1, 2 or 3, or all, if undefined
-  +e / -e, --enable (mandatory: no)
-            enable or disable or show, if undefined
+  -p, --pio=NUMBER (default: 0)
+            PIO number, either 0 or 1
+  -s, --sm=NUMBER (default: 0)
+            SM number, one of 0, 1, 2 or 3
+  -i, --int-divider=NUMBER (mandatory: no)
+            set clock divider integer part for selected PIO and SM
+  -f, --frac-divider=NUMBER (mandatory: no)
+            set clock divider fractional part for selected PIO and SM
+  -d, --divider=NUMBER (mandatory: no)
+            set nearby clock divider from float value for selected PIO and SM
+  -r, --restart (default: off)
+            restart clock for selected PIO and SM
   -h, --help (default: off)
             display this help text and exit
+
+**Notes**
+^^^^^^^^^
+
+If none of the modification options is specified, the status
+of the clock of the selected is displayed.
+Otherwise, for all specified options "-i", "-f" and
+"-r", the corresponding modification will be performed for
+the selected state machine.  Option "-d" can be used
+alternatively to options "-i" and "-f".
 
 :ref:`Back to Overview <commands-overview>`
 
@@ -284,6 +302,16 @@ display or change internal state machine's FIFO status
             FIFO memory address (0x0…0x7) to write value into
   -v, --value=VALUE (mandatory: no)
             value to enqueue or directly write into FIFO memory
+  -c, --clear (default: off)
+            clear both FIFOs, RX and TX
+  --clear-tx-stall (default: off)
+            clear FDEBUG flag 'TX Stall'
+  --clear-tx-over (default: off)
+            clear FDEBUG flag 'TX Over'
+  --clear-rx-under (default: off)
+            clear FDEBUG flag 'RX Under'
+  --clear-rx-stall (default: off)
+            clear FDEBUG flag 'RX Stall'
   -d, --dequeue (default: off)
             dequeue value from either RX or TX FIFO
   -e, --enqueue (default: off)
@@ -292,6 +320,14 @@ display or change internal state machine's FIFO status
             let either RX or TX FIFO steal the other FIFO's storage
   -u, --unjoin (default: off)
             revoke join operation of either RX or TX FIFO
+  --threshold=NUMBER (mandatory: no)
+            set pull threshold (when TX selected) or push threshold (when RX selected)
+  --shift-left (default: off)
+            set shift direction left for OSR (when TX selected or for ISR (when RX selected)
+  --shift-right (default: off)
+            set shift direction left for OSR (when TX selected or for ISR (when RX selected)
+  --auto (mandatory: no)
+            turn on or off auto-pull (when TX selected) or auto-push (when RX selected)
   -t, --tx (default: off)
             apply modification on TX FIFO
   -r, --rx (default: off)
@@ -302,13 +338,21 @@ display or change internal state machine's FIFO status
 **Notes**
 ^^^^^^^^^
 
+Use options "-p" and "-s" to select a state machine.
 If none of the FIFO modification options is specified, the status
-of the FIFO of the selected is displayed.
+of the FIFO of the selected state machine is displayed.
 Option '-a' together with option '-v' can be used for directly
 low-level write a value into one of the 8 FIFO's data registers.
-Otherwise, for all specified modification options, the corresponding
-modifications will be performed for the selected state machine and
-the selected FIFO (either RX or TX).
+Otherwise, for all specified modification options "-d", "-e",
+"-j", "-u", "--threshold", "--shift-left", "--shift-right"
+and "--auto", the corresponding modification will be performed for
+the selected state machine and the selected FIFO (either RX or TX).
+Modification option "-c" will clear both FIFOs and, if specified
+together with one of the other modification options, will be
+executed first.  Similarly, options "--clear-tx-stall",
+"--clear-tx-over", "clear-rx-under" and "clear-rx-stall"
+will clear the corresponding FDEBUG flag of the specified
+state machine.
 
 :ref:`Back to Overview <commands-overview>`
 
@@ -341,13 +385,31 @@ display or change status of GPIO pins
   -i, --init (default: off)
             initialize GPIO pin for use with the specified PIO
   -s, --set (default: off)
-            set GPIO pin of the specified PIO
+            set GPIO pin of the specified PIO or input
   -c, --clear (default: off)
-            clear GPIO pin of the specified PIO
+            clear GPIO pin of the specified PIO or input
   -e, --enable (default: off)
             enable GPIO output of the specified PIO, setting direction to "out"
   -d, --disable (default: off)
             disable GPIO output of the specified PIO, setting direction to "in"
+  --before (default: off)
+            when displaying global GPIO status, show status before rather than after override
+  --override-irq (default: off)
+            specify override policy for a GPIO pin interrupt input
+  --override-in (default: off)
+            specify override policy for a GPIO pin peripheral input
+  --override-oe (default: off)
+            specify override policy for a GPIO pin output enable
+  --override-out (default: off)
+            specify override policy for a GPIO pin output level
+  --pass (default: off)
+            select 'pass' override policy
+  --invert (default: off)
+            select 'invert' override policy
+  --low (default: off)
+            select 'low' override policy
+  --high (default: off)
+            select 'high' override policy
   -h, --help (default: off)
             display this help text and exit
 
@@ -365,12 +427,20 @@ with option "-g", for either initializing a GPIO pin for a PIO, or
 for clearing or setting its status or for specifying its pin
 direction by enabling or disabling its output, respectively.
 Use options "-p" and "-g" option to specify which PIO and GPIO
-pin to apply the operation.
+pin to apply the operation.  Option "-p" can be ommitted when
+clearing or setting GPIO pin status; in that case, the operation
+will apply the new pin status as external input for the specified
+pin.
 
-If none of options "-i", "-s", "-c", "-e", "-d" is
-specified, the current status of all GPIO pins will be displayed,
-depending on option "-p" for either of the PIOs or for the GPIO
-after function selection.
+If none of options "-i", "-s", "-c", "-e", "-d", nor any of
+the override options is specified, the current status of all GPIO pins
+will be displayed, depending on option "-p" for either of the PIOs or,
+if "-p" is not specified, for the GPIO after function selection.
+One of options "--override-irq", "--override-in", "--override-oe", and
+"--override-out" may be specified together with one of policy options
+"--pass", "--invert", "--low", "--high" to change override policy
+of the specified GPIO pin.  If no policy option is specified, the current
+policy is displayed for the specified override target.
 
 :ref:`Back to Overview <commands-overview>`
 
@@ -506,6 +576,59 @@ of opcodes is 32.
 :ref:`Back to Overview <commands-overview>`
 
 .. index::
+   single: monitor command; pinctrl
+   single: pinctrl
+
+.. _pinctrl-command-label:
+
+pinctrl
+-------
+
+**Usage**
+^^^^^^^^^
+
+pinctrl [OPTION]…
+
+**Description**
+^^^^^^^^^^^^^^^
+
+display or change state machine's pin control
+
+**Options**
+^^^^^^^^^^^
+
+  -p, --pio=NUMBER (default: 0)
+            PIO number, either 0 or 1
+  -s, --sm=NUMBER (default: 0)
+            SM number, one of 0, 1, 2 or 3
+  --set-count=COUNT (mandatory: no)
+            number of pins asserted by SET instruction (0…5)
+  --set-base=COUNT (mandatory: no)
+            lowest-numbered pin affected by SET PINS / PINDIRS instruction (0…31)
+  --out-count=COUNT (mandatory: no)
+            number of pins asserted by OUT PINS / PINDIRS or MOV PINS instruction (0…5)
+  --out-base=COUNT (mandatory: no)
+            lowest-numbered pin affected by OUT / MOV PINS / PINDIRS instruction (0…31)
+  --in-base=COUNT (mandatory: no)
+            pin mapped to LSB for IN instruction (0…31)
+  -h, --help (default: off)
+            display this help text and exit
+
+**Notes**
+^^^^^^^^^
+
+Use options "-p" and "-s" to select a state machine.
+If none of the pin control modification options is specified, the
+status of the pin control of the selected state machine is displayed.
+For setting pin count or pin base for SET / OUT / IN instructions,
+use the corresponding "--set-count", "--set-base",
+"--out-count", "--out-base" or "--in-base" option.This command does not support setting the side-set count or
+side-set base.  For modifying side-set configuration, use the
+monitor command "side-set" instead.
+
+:ref:`Back to Overview <commands-overview>`
+
+.. index::
    single: monitor command; quit
    single: quit
 
@@ -591,6 +714,8 @@ display or change internal registers of a state machine
             set value of register X
   -y, --y=VALUE (mandatory: no)
             set value of register Y
+  -a, --address=VALUE (mandatory: no)
+            set value of PC to specified address
   -i, --isr=VALUE (mandatory: no)
             set value of ISR register
   -k, --isrshiftcount=VALUE (mandatory: no)
@@ -756,18 +881,18 @@ file path of the script, including the ".mon" file name suffix.
 :ref:`Back to Overview <commands-overview>`
 
 .. index::
-   single: monitor command; sideset
-   single: sideset
+   single: monitor command; side-set
+   single: side-set
 
-.. _sideset-command-label:
+.. _side-set-command-label:
 
-sideset
--------
+side-set
+--------
 
 **Usage**
 ^^^^^^^^^
 
-sideset [OPTION]…
+side-set [OPTION]…
 
 **Description**
 ^^^^^^^^^^^^^^^
@@ -786,9 +911,9 @@ display or control a state machine's side-set configuration
   -b, --base=NUMBER (mandatory: no)
             base GPIO pin (0…31) number of side-set
   +o / -o, --opt (mandatory: no)
-            make side <value> optional for instructions
+            make side-set values optional for instructions
   +d / -d, --pindirs (mandatory: no)
-            apply side set values to the PINDIRs and not the PINs
+            apply side-set values to the PINDIRs and not the PINs
   -h, --help (default: off)
             display this help text and exit
 
@@ -803,6 +928,51 @@ configured side-set of the selected state machine will be
 displayed.  If at least one of the options -c, -b, ±o, ±d is
 specified, the corresponding settings will be adjusted, while for
 those not specified the corresponding settings will keep unmodified.
+
+:ref:`Back to Overview <commands-overview>`
+
+.. index::
+   single: monitor command; sm
+   single: sm
+
+.. _sm-command-label:
+
+sm
+--
+
+**Usage**
+^^^^^^^^^
+
+sm [OPTION]…
+
+**Description**
+^^^^^^^^^^^^^^^
+
+enable or disable or restart state machine(s) or show if enabled
+
+**Options**
+^^^^^^^^^^^
+
+  -p, --pio=NUMBER (default: 0)
+            PIO number, either 0 or 1
+  -s, --sm=NUMBER (default: 0)
+            SM number, one of 0, 1, 2 or 3
+  +e / -e, --enable (mandatory: no)
+            enable or disable the selected state machine
+  -r, --restart (default: off)
+            restart the selected state machine
+  -h, --help (default: off)
+            display this help text and exit
+
+**Notes**
+^^^^^^^^^
+
+Use options "-p" and "-s" to select a state machine.
+Enable or disable the selected state machine with option
+"+e" or "-e", respectively.  Restart the selected
+state machine with option "+r".
+If none of options "+e", "-e", "-r" is specified,
+show if the state machine is currently enabled.
 
 :ref:`Back to Overview <commands-overview>`
 
@@ -840,6 +1010,8 @@ trace program by performing a number of clock cycles
             show status of (local PIO's) GPIO pins
   -g, --show-gpio (default: off)
             show status of (global) GPIO pins
+  --before (default: off)
+            when displaying global GPIO status, show status before rather than after override
   -w, --wait=NUMBER (default: 0)
             before each cycle, sleep for the specified time [ms] or until interrupted
   -h, --help (default: off)

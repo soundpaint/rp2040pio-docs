@@ -36,9 +36,10 @@ command, just enter ``help``:
    commands.
 
 For any of the listed commands, you can enter the name of that
-command, followed by the option flag ``-h`` to show detailed help for
-the specific command.  For example, the command help for the help
-command looks as follows:
+command, followed by the option flag ``--help`` (or, in the
+abbreviated form, ``-h``) to show detailed help for the specific
+command.  For example, the command help for the help command looks as
+follows:
 
 .. figure:: images/monitor-help-help.png
    :scale: 80%
@@ -47,7 +48,7 @@ command looks as follows:
    Help for Monitor Command ``help``
 
    The monitor command ``help`` lists all available monitor commands
-   and provides only a single flag ``-h`` for showing the detailed
+   and provides only a single flag ``--help`` for showing the detailed
    help for this command.
 
 The help information for each command shows the basic usage syntax for
@@ -55,15 +56,22 @@ the command, a short description of the command, optionally some more
 detailed notes, and finally a list of all available options with
 default value and a short description of the option.
 
+For most options, there is not only a long form (starting with ``--``,
+e.g. ``--help``), but also an abbreviated short form (starting with a
+single ``-`` and immediately followed by a single character,
+e.g. ``-h``).  For clarity of this documentation, we usually prefer
+the long form throughout all examples.  Advanced users, however, will
+probably prefer the short form for minimizing key typing.
+
 .. warning::
 
-  The syntax of the command options is subject to change.  The overall
-  goal is to simplify command syntax, were feasible, e.g. to be able
-  to write ``write 0x50200048 0`` instead of ``write -a 0x50200048 -v
-  0``.  However, since the commands implementation uses a generic
-  command line parser that currently does not support unnamed options,
-  first a major rewrite of the parser has to be taken before the
-  syntax can be updated.
+   The syntax of the command options is subject to change.  The
+   overall goal is to simplify command syntax, were feasible, e.g. to
+   be able to write ``write 0x50200048 0`` instead of
+   ``write --address 0x50200048 --value 0``.  However, since the
+   commands implementation uses a generic command line parser that
+   currently does not support unnamed options, first a major rewrite
+   of the parser has to be taken before the syntax can be updated.
 
 Entering an empty line will just do no operation at all.  Empty lines
 may be useful in monitor scripts for visually structuring command
@@ -103,22 +111,27 @@ cleared, as we can verify with the ``unassemble`` command:
    After a full reset, the ``unassemble`` command will show that the
    instruction memory is cleared.
 
-Note that the ``unassemble`` command shows the instruction memory for
-the first of both PIOs, *PIO0*, and as viewed from the perspective of
-state machine 0 (*SM0*).  The ``unassemble`` command provides options
-to select a different PIO or SM, as you can find out by yourself by
-querying the detailed command help with the ``unassemble -h`` command.
-State machines 0, 1, 2 and 3 of a PIO share the same program memory,
-but the appearance of instructions not only depends on the instruction
-op-code, but also on settings of the particular state machine, such as
-its *side-set*, as we will see later.  Therefore, specifying the state
-machine is essential for correct display of the instruction.
+Note that the ``unassemble`` command by default shows the instruction
+memory for the first of both PIOs, *PIO0*, and as viewed from the
+perspective of state machine 0 (*SM0*).  The ``unassemble`` command
+provides options to select a different PIO or SM, as you can find out
+by yourself by querying the detailed command help with the
+``unassemble --help`` command.  State machines 0, 1, 2 and 3 of a PIO
+share the same program memory, but the appearance of instructions not
+only depends on the instruction op-code, but also on settings of the
+particular state machine, such as its *side-set*, as we will see
+later.  Therefore, selecting a state machine is essential for correct
+display of the instruction.
 
 The line printed in red color marks the current location of the
 *program counter* (also known as *instruction pointer*), which is also
 individual to each specific state machine and therefore also may
 change, when viewing the same instruction memory listing from the
 perspective of a different state machine.
+
+By default, the unassemble command displays all of the 32 memory
+instructions.  If you want to see only an excerpt of the instruction
+memory, use options ``--address`` and ``--count``.
 
 Set Up a Program
 ----------------
@@ -205,7 +218,7 @@ For this specific PIO program we do not need the wrap feature, and we
 keep the *side-set* value unmodified.  Still we have to enable one of
 the 4 state machines to actually run this program.  We choose state
 machine 0 for this job with the command
-``enable --pio=0 --sm=0 --enable=true``.
+``sm --pio=0 --sm=0 --enable=true``.
 
 .. figure:: images/monitor-enable-sm.png
    :scale: 80%
@@ -225,8 +238,8 @@ machine 0 for this job with the command
    built-in example script that can be run with the command
    ``script --dry-run=false --example squarewave``, that effectively
    executes all of the previous commands executed so far in this
-   section.  For details of the script command, enter ``script -h`` to
-   see detail help on this command.
+   section.  For details of the script command, enter ``script
+   --help`` to see detail help on this command.
 
 Step-by-Step Tracing
 --------------------
@@ -243,31 +256,51 @@ the GPIO's status, we use again the ``gpio`` command, but this time without pass
    Use the monitor command ``gpio`` without options for showing the
    status of all 32 GPIO pins.
 
-For double check (if we forget to frequently check the status on the
-monitor's command line), we open in parallel the GPIO Observer
-application by invoking another JVM instance on the GPIO Observer Jar
-file: ::
+Since it is tedious to frequently check the status on the monitor's
+command line, we may open in parallel the
+:ref:`section-top_gpio-observer` application by invoking another JVM
+instance on the GPIO Observer Jar file: ::
 
   java -jar rp2040pio_gpioobserver.jar
 
 A window opens and shows that all GPIO pins in accordance with what
 our monitor command ``gpio`` returned.
 
-.. figure:: images/gpio-observer-monitor-0.png
+.. figure:: images/monitor-gpio.png
    :scale: 80%
    :alt: GPIO Pins Status View by GPIO Observer
 
    GPIO Pins Status View by GPIO Observer
 
-   For double-check of our monitor session, we open the graphical GPIO
-   Observer application.
+   Running the GPIO Observer in parallel to the monitor is much less
+   tedious than always checking for the status on the command-line.
+
+On the other hand, showing the GPIO status in the monitor on the
+command-line has the advantage that you can track the history by
+scrolling back in the terminal window, while the GPIO Observer
+displays the current status only, but has the advantage of
+automatically updating its display.  Therefore, you may want to use
+both ways of GPIO status display in parallel.
+
+.. note::
+
+   The two PIOs both can access all GPIO pins by mapping GPIO pins
+   individually to either PIO0 or PIO1.  Therefore, there is a view of
+   GPIO pins as seen by a specific PIO, but also the global view of
+   GPIO pins as seen from outside of the chip.  Since in our examples,
+   we always use only a single PIO, both views are effectively
+   identical.  Therefore, for clearness we only show one of both views
+   in the following examples.
 
 Now, we are ready to trace into the PIO program.  We use the command
 ``trace`` that, by default, triggers a single clock cycle of the
 emulator.  Since all instructions will execute in exactly one clock
 cycle (unless a delay is explicitly specified), we will execute
 exactly one instruction each time we enter the ``trace`` command.  We
-add option ``-g`` to also observe any change on the GPIO pins.
+add option ``--show-gpio`` to also observe any change on the global
+view of GPIO pins.  Note that we also could use option
+``--show-local-gpio`` together with option ``--pio=0`` for showing
+PIO0's view of GPIO pins, giving the same result.
 
 The first PIO instruction, ``00: e081 set pindirs, 01 side 0``, will
 change the pin direction of GPIO pin 1.  We can see the affect by the

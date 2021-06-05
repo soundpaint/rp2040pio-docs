@@ -3,7 +3,7 @@
 .. # DO NOT CHANGE THIS FILE, since changes will be lost upon
 .. # its next update.  Instead, change the info in the source code.
 .. # This file was automatically created on:
-.. # 2021-05-11T02:22:53.174995Z
+.. # 2021-06-04T16:35:16.519111Z
 
 .. _section-top_emulator_pio_registers:
 
@@ -34,7 +34,7 @@ register set for each of the two PIOs) is
 
    0x000, :ref:`SM0_REGX <SM0_REGX-details-label>`, "Direct read / write access to the SM's scratch register X."
    0x004, :ref:`SM0_REGY <SM0_REGY-details-label>`, "Direct read / write access to the SM's scratch register Y."
-   0x008, :ref:`SM0_PC <SM0_PC-details-label>`, "Direct read-only access to the SM's instruction pointer / program counter."
+   0x008, :ref:`SM0_PC <SM0_PC-details-label>`, "Direct read / write access to the SM's instruction pointer / program counter."
    0x00c, :ref:`SM0_ISR <SM0_ISR-details-label>`, "Direct read / write access to the SM's input shift register."
    0x010, :ref:`SM0_ISR_SHIFT_COUNT <SM0_ISR_SHIFT_COUNT-details-label>`, "Direct read / write access to the SM's input shift count register."
    0x014, :ref:`SM0_OSR <SM0_OSR-details-label>`, "Direct read / write access to all of the SM's output shift register."
@@ -56,11 +56,11 @@ register set for each of the two PIOs) is
    0x054, :ref:`SM0_FORCED_INSTR <SM0_FORCED_INSTR-details-label>`, "Direct read-only access to the op-code of a forced instruction that is awaiting execution during the next clock cycle.  For writing a forced instruction, use SMx_INSTR of PIORegisters instead."
    0x058, :ref:`SM0_EXECD_INSTR <SM0_EXECD_INSTR-details-label>`, "Direct read/write access to the op-code of an EXEC'd instruction that is awaiting execution during the next clock cycle, unless the state machine's clock signal does not evaluate to true, or there is a pending forced instruction, in which case the forced instruction will be executed first."
    0x05c, :ref:`SM0_CLK_ENABLE <SM0_CLK_ENABLE-details-label>`, "Read-only access to the SM's delay status."
-   0x060, :ref:`SM0_BREAKPOINTS <SM0_BREAKPOINTS-details-label>`, "Each bit of this values corresponds to each of the 32 memory locations of the PIO instruction memory (with the LSB of the word corresponding to the lowest memory address).  Setting a bit to 1 marks the corresponding memory address as location of a breakpoint.  Setting a bit to 0 removes the breakpoint.  As soon as the program counter of the state machine reaches an address that is marked as a breakpoint, master clock MASTERCLK_MODE will be automatically set to single step mode."
+   0x060, :ref:`SM0_BREAKPOINTS <SM0_BREAKPOINTS-details-label>`, "Each bit of this value corresponds to each of the 32 memory locations of the PIO instruction memory (with the LSB of the word corresponding to the lowest memory address).  Setting a bit to 1 marks the corresponding memory address as location of a breakpoint.  Setting a bit to 0 removes the breakpoint.  As soon as the program counter of the state machine reaches an address that is marked as a breakpoint, master clock MASTERCLK_MODE will be automatically set to single step mode."
    0x064, :ref:`SM0_TRACEPOINTS <SM0_TRACEPOINTS-details-label>`, "Tracepoints work like breakpoints with the difference that master clock MASTERCLK_MODE it not automatically set to single step mode, but instead a message is typically printed to console output (depending on the specific client application).  The message may, for example, caontain the state machine's number and disassembled instruction with prefixed instruction memory address.  Tracepoints work in all master clock MASTERCLK_MODE modes."
    0x068, :ref:`SM1_REGX <SM1_REGX-details-label>`, "Direct read / write access to the SM's scratch register X."
    0x06c, :ref:`SM1_REGY <SM1_REGY-details-label>`, "Direct read / write access to the SM's scratch register Y."
-   0x070, :ref:`SM1_PC <SM1_PC-details-label>`, "Direct read-only access to the SM's instruction pointer / program counter."
+   0x070, :ref:`SM1_PC <SM1_PC-details-label>`, "Direct read / write access to the SM's instruction pointer / program counter."
    0x074, :ref:`SM1_ISR <SM1_ISR-details-label>`, "Direct read / write access to the SM's input shift register."
    0x078, :ref:`SM1_ISR_SHIFT_COUNT <SM1_ISR_SHIFT_COUNT-details-label>`, "Direct read / write access to the SM's input shift count register."
    0x07c, :ref:`SM1_OSR <SM1_OSR-details-label>`, "Direct read / write access to all of the SM's output shift register."
@@ -82,11 +82,11 @@ register set for each of the two PIOs) is
    0x0bc, :ref:`SM1_FORCED_INSTR <SM1_FORCED_INSTR-details-label>`, "Direct read-only access to the op-code of a forced instruction that is awaiting execution during the next clock cycle.  For writing a forced instruction, use SMx_INSTR of PIORegisters instead."
    0x0c0, :ref:`SM1_EXECD_INSTR <SM1_EXECD_INSTR-details-label>`, "Direct read/write access to the op-code of an EXEC'd instruction that is awaiting execution during the next clock cycle, unless the state machine's clock signal does not evaluate to true, or there is a pending forced instruction, in which case the forced instruction will be executed first."
    0x0c4, :ref:`SM1_CLK_ENABLE <SM1_CLK_ENABLE-details-label>`, "Read-only access to the SM's delay status."
-   0x0c8, :ref:`SM1_BREAKPOINTS <SM1_BREAKPOINTS-details-label>`, "Each bit of this values corresponds to each of the 32 memory locations of the PIO instruction memory (with the LSB of the word corresponding to the lowest memory address).  Setting a bit to 1 marks the corresponding memory address as location of a breakpoint.  Setting a bit to 0 removes the breakpoint.  As soon as the program counter of the state machine reaches an address that is marked as a breakpoint, master clock MASTERCLK_MODE will be automatically set to single step mode."
+   0x0c8, :ref:`SM1_BREAKPOINTS <SM1_BREAKPOINTS-details-label>`, "Each bit of this value corresponds to each of the 32 memory locations of the PIO instruction memory (with the LSB of the word corresponding to the lowest memory address).  Setting a bit to 1 marks the corresponding memory address as location of a breakpoint.  Setting a bit to 0 removes the breakpoint.  As soon as the program counter of the state machine reaches an address that is marked as a breakpoint, master clock MASTERCLK_MODE will be automatically set to single step mode."
    0x0cc, :ref:`SM1_TRACEPOINTS <SM1_TRACEPOINTS-details-label>`, "Tracepoints work like breakpoints with the difference that master clock MASTERCLK_MODE it not automatically set to single step mode, but instead a message is typically printed to console output (depending on the specific client application).  The message may, for example, caontain the state machine's number and disassembled instruction with prefixed instruction memory address.  Tracepoints work in all master clock MASTERCLK_MODE modes."
    0x0d0, :ref:`SM2_REGX <SM2_REGX-details-label>`, "Direct read / write access to the SM's scratch register X."
    0x0d4, :ref:`SM2_REGY <SM2_REGY-details-label>`, "Direct read / write access to the SM's scratch register Y."
-   0x0d8, :ref:`SM2_PC <SM2_PC-details-label>`, "Direct read-only access to the SM's instruction pointer / program counter."
+   0x0d8, :ref:`SM2_PC <SM2_PC-details-label>`, "Direct read / write access to the SM's instruction pointer / program counter."
    0x0dc, :ref:`SM2_ISR <SM2_ISR-details-label>`, "Direct read / write access to the SM's input shift register."
    0x0e0, :ref:`SM2_ISR_SHIFT_COUNT <SM2_ISR_SHIFT_COUNT-details-label>`, "Direct read / write access to the SM's input shift count register."
    0x0e4, :ref:`SM2_OSR <SM2_OSR-details-label>`, "Direct read / write access to all of the SM's output shift register."
@@ -108,11 +108,11 @@ register set for each of the two PIOs) is
    0x124, :ref:`SM2_FORCED_INSTR <SM2_FORCED_INSTR-details-label>`, "Direct read-only access to the op-code of a forced instruction that is awaiting execution during the next clock cycle.  For writing a forced instruction, use SMx_INSTR of PIORegisters instead."
    0x128, :ref:`SM2_EXECD_INSTR <SM2_EXECD_INSTR-details-label>`, "Direct read/write access to the op-code of an EXEC'd instruction that is awaiting execution during the next clock cycle, unless the state machine's clock signal does not evaluate to true, or there is a pending forced instruction, in which case the forced instruction will be executed first."
    0x12c, :ref:`SM2_CLK_ENABLE <SM2_CLK_ENABLE-details-label>`, "Read-only access to the SM's delay status."
-   0x130, :ref:`SM2_BREAKPOINTS <SM2_BREAKPOINTS-details-label>`, "Each bit of this values corresponds to each of the 32 memory locations of the PIO instruction memory (with the LSB of the word corresponding to the lowest memory address).  Setting a bit to 1 marks the corresponding memory address as location of a breakpoint.  Setting a bit to 0 removes the breakpoint.  As soon as the program counter of the state machine reaches an address that is marked as a breakpoint, master clock MASTERCLK_MODE will be automatically set to single step mode."
+   0x130, :ref:`SM2_BREAKPOINTS <SM2_BREAKPOINTS-details-label>`, "Each bit of this value corresponds to each of the 32 memory locations of the PIO instruction memory (with the LSB of the word corresponding to the lowest memory address).  Setting a bit to 1 marks the corresponding memory address as location of a breakpoint.  Setting a bit to 0 removes the breakpoint.  As soon as the program counter of the state machine reaches an address that is marked as a breakpoint, master clock MASTERCLK_MODE will be automatically set to single step mode."
    0x134, :ref:`SM2_TRACEPOINTS <SM2_TRACEPOINTS-details-label>`, "Tracepoints work like breakpoints with the difference that master clock MASTERCLK_MODE it not automatically set to single step mode, but instead a message is typically printed to console output (depending on the specific client application).  The message may, for example, caontain the state machine's number and disassembled instruction with prefixed instruction memory address.  Tracepoints work in all master clock MASTERCLK_MODE modes."
    0x138, :ref:`SM3_REGX <SM3_REGX-details-label>`, "Direct read / write access to the SM's scratch register X."
    0x13c, :ref:`SM3_REGY <SM3_REGY-details-label>`, "Direct read / write access to the SM's scratch register Y."
-   0x140, :ref:`SM3_PC <SM3_PC-details-label>`, "Direct read-only access to the SM's instruction pointer / program counter."
+   0x140, :ref:`SM3_PC <SM3_PC-details-label>`, "Direct read / write access to the SM's instruction pointer / program counter."
    0x144, :ref:`SM3_ISR <SM3_ISR-details-label>`, "Direct read / write access to the SM's input shift register."
    0x148, :ref:`SM3_ISR_SHIFT_COUNT <SM3_ISR_SHIFT_COUNT-details-label>`, "Direct read / write access to the SM's input shift count register."
    0x14c, :ref:`SM3_OSR <SM3_OSR-details-label>`, "Direct read / write access to all of the SM's output shift register."
@@ -134,7 +134,7 @@ register set for each of the two PIOs) is
    0x18c, :ref:`SM3_FORCED_INSTR <SM3_FORCED_INSTR-details-label>`, "Direct read-only access to the op-code of a forced instruction that is awaiting execution during the next clock cycle.  For writing a forced instruction, use SMx_INSTR of PIORegisters instead."
    0x190, :ref:`SM3_EXECD_INSTR <SM3_EXECD_INSTR-details-label>`, "Direct read/write access to the op-code of an EXEC'd instruction that is awaiting execution during the next clock cycle, unless the state machine's clock signal does not evaluate to true, or there is a pending forced instruction, in which case the forced instruction will be executed first."
    0x194, :ref:`SM3_CLK_ENABLE <SM3_CLK_ENABLE-details-label>`, "Read-only access to the SM's delay status."
-   0x198, :ref:`SM3_BREAKPOINTS <SM3_BREAKPOINTS-details-label>`, "Each bit of this values corresponds to each of the 32 memory locations of the PIO instruction memory (with the LSB of the word corresponding to the lowest memory address).  Setting a bit to 1 marks the corresponding memory address as location of a breakpoint.  Setting a bit to 0 removes the breakpoint.  As soon as the program counter of the state machine reaches an address that is marked as a breakpoint, master clock MASTERCLK_MODE will be automatically set to single step mode."
+   0x198, :ref:`SM3_BREAKPOINTS <SM3_BREAKPOINTS-details-label>`, "Each bit of this value corresponds to each of the 32 memory locations of the PIO instruction memory (with the LSB of the word corresponding to the lowest memory address).  Setting a bit to 1 marks the corresponding memory address as location of a breakpoint.  Setting a bit to 0 removes the breakpoint.  As soon as the program counter of the state machine reaches an address that is marked as a breakpoint, master clock MASTERCLK_MODE will be automatically set to single step mode."
    0x19c, :ref:`SM3_TRACEPOINTS <SM3_TRACEPOINTS-details-label>`, "Tracepoints work like breakpoints with the difference that master clock MASTERCLK_MODE it not automatically set to single step mode, but instead a message is typically printed to console output (depending on the specific client application).  The message may, for example, caontain the state machine's number and disassembled instruction with prefixed instruction memory address.  Tracepoints work in all master clock MASTERCLK_MODE modes."
    0x1a0, :ref:`INSTR_MEM0 <INSTR_MEM0-details-label>`, "Read / write access to instruction memory word."
    0x1a4, :ref:`INSTR_MEM1 <INSTR_MEM1-details-label>`, "Read / write access to instruction memory word."
@@ -274,7 +274,7 @@ register set for each of the two PIOs) is
    :header: Bits, Name, Description, Type, Reset
    :widths: 8, 20, 40, 8, 20
 
-   31:0, ―, "Direct read-only access to the SM's instruction pointer / program counter.", RW, 0
+   31:0, ―, "Direct read / write access to the SM's instruction pointer / program counter.", RW, 0
 
 .. _SM0_ISR-details-label:
 .. _SM1_ISR-details-label:
@@ -945,7 +945,7 @@ Read-only access to the SM's delay status.
 
 **Description**
 
-Each bit of this values corresponds to each of the
+Each bit of this value corresponds to each of the
 32 memory locations of the PIO instruction memory
 (with the LSB of the word corresponding to the lowest
 memory address).  Setting a bit to 1 marks the
