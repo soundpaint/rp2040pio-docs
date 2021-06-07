@@ -59,22 +59,18 @@ initializing GPIO pin 23 for use with PIO 0. ::
   # (yet) provide loops; hence we have to unroll any periodic activity
   # for now.
 
-  # Connect GPIO pin 23 with PIO 0
-
-  gpio --pio=0 --gpio=23 --init
-
 Next, we initialize our GPIO pin, here for example with the pin's
 value being set to a logical 1 state. ::
 
-  # Set GPIO pin 23 to 1 for PIO0
+  # Set GPIO pin 23 to 1
 
-  gpio --pio=0 --gpio=23 --set
+  gpio --gpio=23 --set
 
 For double-checking, we look at the result of our previous command. ::
 
   # Show effect
 
-  gpio --pio=0
+  gpio
 
 Next, we wait until clock cycle 0x00000002 is reached (assuming that
 the emulator has just been reset and starts counting with clock cycle
@@ -140,16 +136,16 @@ Now, we are synchronized with stable phase 0 after clock cycle
 continue).  Since we have previously set GPIO pin 23 to 1, we now
 reset it back to 0. ::
 
-  # Now, clear GPIO pin 23 to 1 for PIO0
+  # Now, clear GPIO pin 23 to 1
 
-  gpio --pio=0 --gpio=23 --clear
+  gpio --gpio=23 --clear
 
 For double-checking, we again look at the result of our previous
 command. ::
 
   # Show effect
 
-  gpio --pio=0
+  gpio
 
 Now, that we have synchronized with phase 0 after clock cycle
 0x00000002 (assuming that no timeout occurred on the last wait), there
@@ -193,8 +189,8 @@ double-checking. ::
 
   # GPIO pin 23 := 1, and show effect.
 
-  gpio --pio=0 --gpio=23 --set
-  gpio --pio=0
+  gpio --gpio=23 --set
+  gpio
 
 And we wait for another 3 clock cycles (plus stable phase 0), toggle
 the bit again and show it again for double-checking. ::
@@ -206,8 +202,8 @@ the bit again and show it again for double-checking. ::
 
   # GPIO pin 23 := 0, and show effect.
 
-  gpio --pio=0 --gpio=23 --clear
-  gpio --pio=0
+  gpio --gpio=23 --clear
+  gpio
 
 And the same some more times. ::
 
@@ -218,19 +214,19 @@ And the same some more times. ::
 
   # GPIO pin 23 := 1, and show effect.
 
-  gpio --pio=0 --gpio=23 --set
-  gpio --pio=0
+  gpio --gpio=23 --set
+  gpio
 
   # And so on, for some more cycles...
 
   wait --address=0x58000014 --mask=0 --value=1 --cycles=3 --time=0
   wait --address=0x5800000c --value=1 --cycles=0 --time=0
-  gpio --pio=0 --gpio=23 --clear
-  gpio --pio=0
+  gpio --gpio=23 --clear
+  gpio
   wait --address=0x58000014 --mask=0 --value=1 --cycles=3 --time=0
   wait --address=0x5800000c --value=1 --cycles=0 --time=0
-  gpio --pio=0 --gpio=23 --set
-  gpio --pio=0
+  gpio --gpio=23 --set
+  gpio
 
 We can also make use of the monitor commands' abbreviated syntax. ::
 
@@ -241,12 +237,12 @@ We can also make use of the monitor commands' abbreviated syntax. ::
 
   wa -a 0x58000014 -m 0 -v 1 -c 3
   wa -a 0x5800000c -v 1
-  g -p 0 -g 23 -c
-  g -p 0
+  g -g 23 -c
+  g
   wa -a 0x58000014 -m 0 -v 1 -c 3
   wa -a 0x5800000c -v 1
-  g -p 0 -g 23 -s
-  g -p 0
+  g -g 23 -s
+  g
 
 And the same some more times, this time without double-checking, since
 we are now confident that our approach works fine. ::
@@ -255,10 +251,10 @@ we are now confident that our approach works fine. ::
 
   wa -a 0x58000014 -m 0 -v 1 -c 3
   wa -a 0x5800000c -v 1
-  g -p 0 -g 23 -c
+  g -g 23 -c
   wa -a 0x58000014 -m 0 -v 1 -c 3
   wa -a 0x5800000c -v 1
-  g -p 0 -g 23 -s
+  g -g 23 -s
 
 Finally, at some point, we stop this process and quit the script. ::
 
@@ -281,13 +277,14 @@ Now let us perform another example monitor session to see how to apply
 our external signal while debugging a PIO program.
 
 First, start a monitor session.  Execute the example squarewave PIO
-pogram monitor script with the command ``script -d --example
-squarewave`` (or, abbreviated, ``sc -d -e squarewave``).  The script
-will start with resetting the emulator such that we are in a
-well-defined state now, load the squarewave example PIO program into
-PIO0, and set up SM0 of PIO0 for execution of the program.  The
-initial ``reset`` in the script will also reset the clock cycle count
-to start with value 0 upon execution of the next instruction.
+pogram monitor script with the command
+``script --dry-run=false --example squarewave`` (or, abbreviated,
+``sc -d -e squarewave``).  The script will start with resetting the
+emulator such that we are in a well-defined state now, load the
+squarewave example PIO program into PIO0, and set up SM0 of PIO0 for
+execution of the program.  The initial ``reset`` in the script will
+also reset the clock cycle count to start with value 0 upon execution
+of the next instruction.
 
 .. figure:: images/io-monitor-load-mon.png
    :scale: 80%
@@ -315,7 +312,7 @@ execute our ``ext-wave`` monitor script with the monitor command
 ``script --dry-run=false --example=ext-wave``.  The script will
 provide the external signal on GPIO 23.  After startup, the script
 stops at the first ``wait`` command in expectation for the PIO program
-to arrive at clock cycle 3.
+to arrive at clock cycle 2.
 
 .. figure:: images/io-monitor-external.png
    :scale: 80%

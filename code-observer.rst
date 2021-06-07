@@ -75,11 +75,14 @@ Forced & EXEC'd Instructions
 Pending forced and EXEC'd instructions are shown in an additional
 separate line atop the scrollable list of memory instructions.  This
 line is empty unless either a forced or an EXEC'd instruction is
-awaiting execution.  If both, a forced and an EXEC'd instruction are
-awaiting execution, the forced instruction is shown, since the state
-machine will execute it first.  Only after that, the state machine
-will execute the EXEC'd instruction which will be displayed as soon as
-the state machines starts executing the forced instruction.
+awaiting execution.  To distinguish them, a forced instruction is
+displayed with prefix ``[f]``, while an EXEC'd instruction is
+displayed with prefix ``[x]``.  If both, a forced and an EXEC'd
+instruction are awaiting execution, the forced instruction is shown,
+since the state machine will execute it first.  Only after that, the
+state machine will execute the EXEC'd instruction which will be
+displayed as soon as the state machines starts executing the forced
+instruction.
 
 .. figure:: images/code-observer-forced.png
    :scale: 80%
