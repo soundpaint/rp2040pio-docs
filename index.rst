@@ -63,6 +63,7 @@ User Reference Documentation
 
    command-line-syntax
    Monitor commands <monitor-commands>
+   Example Scripts <example-scripts>
    Socket API <socket-api>
 
 Register API Documentation

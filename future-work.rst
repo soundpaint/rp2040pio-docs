@@ -63,6 +63,14 @@ following items:
   OSR occurs whilst autopull is enabled, as specified in
   Sect. 3.5.4.2. “Autopull Details”.
 
+* Generate a warning when instruction “WAIT 1 IRQ x” is used with an
+  IRQ flag presented to the interrupt controller (cp. warning in
+  Sect. 3.4.3. “WAIT”).
+
+* Generate a warning when a client application writes to a read-only
+  register of the register facade, or when reading from a write-only
+  register.
+
 * Maybe add tooltips in timing diagrams with descriptive /
   explanatory text for all of those warnings.
 

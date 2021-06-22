@@ -40,8 +40,8 @@ Currently, the following tools are available.
     +----------------------------------+--------------+------------------------------------+--------------------------------------+
 
 More client applications for monitoring even more of a state machine's
-internal state such as its scratch registers X and Y are planned for
-future implementation.
+internal state such as its scratch registers X and Y or the IRQs
+configuration and status are planned for future implementation.
 
 Connection Status
 -----------------
